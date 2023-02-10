@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body, body *{
+            font-size: 1.5rem;
+            font-family: 'Single Day';
+        }
+    </style>
+</head>
+<body>
+    <div style="margin:50px;">
+        숫자1
+        <input type="text" id="su1" style="width: 100px;">
+        &nbsp;&nbsp;&nbsp;
+        숫자2
+        <input type="text" id="su2" style="width: 100px;">
+        &nbsp;&nbsp;
+        <select id="sel">
+            <option selected disabled hidden>연산자 선택</option>
+            <option value="+">더하기</option>
+            <option value="-">빼기</option>
+            <option value="*">곱하기</option>
+            <option value="/">나누기</option>
+        </select>
+        <br><br>
+        <h1 id="result" style="text-align: center;"></h1>
+        <h1 id="result2" style="text-align: center;"></h1>
+    </div>
+
+    <script>
+        var su1=document.getElementById("su1");
+        var su2=document.getElementById("su2");
+        var sel=document.getElementById("sel");
+
+        //onfocus= text안에 클릭시 발생하는 이벤트
+        su1.onfocus=function(){
+            this.style.backgroundColor="lightyellow";
+        }
+
+        //text에서 포커스가 벗어날때 발생하는 이벤트
+        su1.onblur=function(){
+            this.style.backgroundColor="white";
+
+            //입력한값이 숫자가 아닐경우 경고표시후 값지우고 포커스 주기
+            if(isNaN(this.value))
+            {
+                alert("숫자로만 입력해주세요");
+                this.value="";
+                this.focus(); //커서를 안으로
+            }
+        }
+
+        //su2도 벗어날 때 숫자인지 체크해주세요
+        su2.onblur=function(){
+            if(isNaN(this.value)) //==ture 생략
+            {
+                alert("숫자로만 입력해주세요");
+                this.value="";
+                this.focus();
+            }
+        }
+        
+        //select 이벤트
+        sel.onchange=function(){
+            // alert(this.value);
+            
+            //su1, su2의 타입을 확인해보자 -string
+            console.log(typeof(su1.value));
+            console.log(typeof(su2.value));
+            
+            var r;
+            switch(this.value)
+            {
+                case '+':
+                    //더하기일 경우에만 문자열 형태로 더한다.
+                    //제대로 계산되도록 하려면 숫자로 바꾼후 계산해야 한다.
+                    //parseInt(정수로 변환) 또는 parseFloat(실수로 변환) 또는 Number(수치로 변환) 사용해야함
+                    //r=parseInt(su1.value)+parseInt(su2.value); 소숫점 버림하여 계산
+                    r=Number(su1.value)+Number(su2.value); //정수든 실수든 상관없이 숫자로 변환
+                    break;//switch 문을 빠져나간다. 생략시 다음 case가 실행된다.
+                case '-':
+                    r=su1.value-su2.value;
+                    break;    
+                case '*':
+                    r=su1.value*su2.value;
+                    break;
+                case '/':
+                    r=su1.value/su2.value;
+                    break;
+            }
+
+            document.getElementById("result").innerHTML=r;
+        
+            //switch나 if로 계산없이 바로 계산결과 출력하기 ->  eval 이용
+            //eval("수식"): 자동으로 계산해서 변환
+            var r2=su1.value+this.value+su2.value;
+            console.log(r2);
+
+            document.getElementById("result2").innerText=eval(r2);//수식r2를 계산하여 
+        }
+    </script>
+</body>
+</html>

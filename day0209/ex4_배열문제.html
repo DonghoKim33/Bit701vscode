@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .photo{
+            width: 100px;
+            height: 100px;
+            border:1px solid gray;
+            
+
+        }
+    </style>
+</head>
+<body>
+    <script>
+        //Moviestar 사진과 함께 출력할 이름을 배열에 넣은 후 사진과 이름 출력하기
+        var starname=new Array();
+        starname.push("여진구");
+        starname.push("김우빈");
+        starname.push("김영광");
+        starname.push("박서준");
+        starname.push("최지우");
+        starname.push("한예슬");
+        starname.push("황정음");
+        starname.push("전지현");
+        starname.push("강동원");
+        starname.push("김태희");
+        starname.push("고준희");
+        starname.push("박보영");
+        starname.push("박신혜");
+        starname.push("유승호");
+        starname.push("설현");
+    </script>
+    <table border="1" style="width: 600px; border-collapse: collapse;">
+        <caption><b>[무비스타 엔터 소속 배우들]</b></caption>
+        <tr>
+        <script>
+            var s="";
+            for(var i=1; i<=starname.length; i++){
+                // s+=`
+                //     <td align=center>
+                //         <img src="../image/moviestar/${i}.jpg" class="photo">
+                //         <br>
+                //         <b>${starname[i-1]}</b>
+                //     </td>
+                // `;
+                s+="<td align=center>";
+                s+="<img src='../image/moviestar/"+i+".jpg' class='photo'>";
+                s+= "<br><b>"+starname[i-1]+"</b>";
+                s+="<td>"
+                if(i%5==0){
+                    s+="</tr><tr>";
+                }
+            }
+        document.write(s);
+        </script>
+        </tr>
+    </table>
+</body>
+</html>

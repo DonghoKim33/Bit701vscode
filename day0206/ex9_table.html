@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body *{
+            font-size: 1rem;
+        }
+
+        table.num{
+            width: 400px;
+            height: 250px;
+            
+        }
+        table.num td:hover{
+            background-color: blueviolet;
+            color: azure;
+        }
+        
+        table.num{
+            border-collapse: collapse;
+            border: 10px groove chocolate;
+        }
+    </style>
+</head>
+<body>
+    
+    <table class=num border="1">
+        <caption><b>[셀 합치기: colspan, rowsapn]</b></caption>
+        <tr>
+            <td rowspan="3" valign="top" bgcolor="skyblue">일</td>
+            <td colspan="3" bgcolor="pink">이</td>
+        </tr>
+        <tr>
+            <td colspan="2" bgcolor="pink">
+                <marquee direction="right" behavior="alternate" scrollamount="50">
+                <button type="button" onclick="test1()">삼</button></marquee>
+                <h2 id="result1"></h2>
+                <script>
+                    function test1()
+                    {
+                        document.getElementById("result1").innerHTML="<b>버튼 1 클릭</b>";
+                    }
+                </script>
+            </td>
+            <td rowspan="3" valign="bottom" bgcolor="skyblue">사</td>
+        </tr>
+        <tr>
+            <td>오</td>
+            <td>육</td>
+        </tr>
+        <tr>
+           <td colspan="3" bgcolor="pink">칠</td> 
+        </tr>
+    </table>
+    <button type="button" onclick="test2()">버튼 2번</button>
+    <h2 id="k2"></h2>
+    <script>
+        function test2()
+        {
+            var kk=confirm("확인버튼")
+            if (kk==true)
+            document.getElementById("k2").innerHTML="<b> 버튼 2를 클릭함</b>"
+            else
+            document.getElementById("k2").innerHTML="<b>실패</b>"
+        }
+    </script>
+
+</body>
+</html>

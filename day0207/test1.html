@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div style="margin:50px;">
+        <b>이름</b>
+        <input type="text" id="irum" style="width: 100px;">
+        <br><br>
+        <b>자바</b>
+        <input type="text" id="Java" style="width: 100px;">
+        <br><br>
+        <b>HTML</b>
+        <input type="text" id="HTML" style="width: 100px;">
+        <br><br><br>
+    
+    <button type="button" id="result" style="margin-left: 50px">결과확인</button><br>
+    <b id="msg"></b>
+
+        
+    </div>
+    <script>
+        var irum1=document.getElementById("irum");
+        var Java1=document.getElementById("Java");
+        var HTML1=document.getElementById("HTML");
+
+        irum.onfocus=function(){
+            this.style.backgroundColor="lightyellow";
+        }
+
+        irum.onblur=function(){
+            this.style.backgroundColor="white";
+        }
+
+        Java.onfocus=function(){
+            this.style.backgroundColor="lightyellow";
+        }
+
+
+        Java.onblur=function(){
+            this.style.backgroundColor="white";
+
+
+            if(isNaN(this.value))
+            {
+                alert("숫자로만 입력해주세요");
+                this.value="";
+                this.focus(); 
+            }
+        }
+
+        HTML.onfocus=function(){
+            this.style.backgroundColor="lightyellow";
+        }
+
+        HTML.onblur=function(){
+            this.style.backgroundColor="white";
+
+            if(isNaN(this.value))
+            {
+                alert("숫자로만 입력해주세요");
+                this.value="";
+                this.focus();
+            }
+        }
+         
+        document.getElementById("result").onclick=function(){
+            var s1=irum1.value;
+            var s2=Java1.value;
+            var s3=HTML1.value;
+            var s4=parseInt(Java1.value)+parseInt(HTML1.value);
+            var s5=(parseInt(Java1.value)+parseInt(HTML1.value))/2
+            msg.innerHTML=`이름: ${s1}<br> 자바점수: ${s2}<br> HTML 점수: ${s3}<br> 총점: ${s4}<br> 평균: ${s5}`;   
+        }
+    </script>
+
+
+</body>
+</html>

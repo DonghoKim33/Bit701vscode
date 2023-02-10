@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mycar{
+            width: 200px;
+            height: 130px;
+        }
+        
+        .food{
+            width: 200px;
+            height: 130px;
+        }
+    </style>
+</head>
+<body>
+    <h2> 구구단 5단 출력</h2>
+    <script>
+        for(i=1;i<=9; i++){
+            // document.write(`5 X ${i} = ${5*i}<br>`);
+            document.write("5 X "+i+"="+5*i+"<br>")
+        }
+    </script>
+    <hr>
+    <h2>mycarimage 폴더에서 car1.png 부터 car10.png까지 출력</h2>
+    <script>
+        for(i=1;i<=10;i++){
+            var s=`<img src="../image/mycarimage/car${i}.png" class="mycar">`;
+            document.write(s);
+        }
+    </script>
+    <hr>
+    <h2>food 이미지에서 1.jpg~ 12.jpg까지 출력(class="food")로 준 후 style 적용</h2>
+    <script>
+        for(i=1;i<=12;i++){
+            var n=`<img src="../image/food/${i}.jpg" class="food">`;
+            document.write(n);
+        }
+    </script>
+</body>
+</html>

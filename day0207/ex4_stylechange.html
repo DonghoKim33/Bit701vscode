@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            width: 200px;
+            height: 200px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: cadetblue;
+            background-color: chartreuse;
+        }
+
+        .data{
+            position: absolute;
+            left: 100px;
+            top: 350px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <div class="data">
+        <b>선스타일</b>
+        <select id="selstyle">
+            <option>solid</option>
+            <option>dotted</option>
+            <option>dashed</option>
+            <option>inset</option>
+            <option>groove</option>
+            <option>double</option>
+        </select>
+
+        <br><br>
+
+        <b>선색상</b>
+        <select id="selcolor">
+            <option selected disabled hidden>선색상 선택</option>
+            <option value="red">빨강색</option>
+            <option value="#ff69b4">핑크색</option>
+            <option value="#66cdaa">아쿠아색</option>
+            <option value="#9acd32">연두색</option>
+            <option value="#9400d3">보라색</option>
+        </select>
+
+        <br><br>
+
+        <b>채우기색상</b>
+        <select id="selbcolor">
+            <option selected disabled hidden>채우기색상 선택</option>
+            <option value="#ffb6c1">연핑크</option>
+            <option value="green">그린색</option>
+            <option value="#8fbc8f">앤틱그린색</option>
+            <option value="#afeeee">하늘색</option>
+            <option value="#c71585">진핑크색</option>
+        </select>
+    </div>
+    <script>
+        var box=document.getElementById("box");
+
+        document.getElementById("selstyle").onchange=function(){
+            box.style.borderStyle=this.value;
+        }
+
+        document.getElementById("selcolor").onchange=function(e){
+            box.style.borderColor=e.target.value;
+        }
+
+        document.getElementById("selbcolor").onchange=function(){
+            box.style.backgroundColor=this.value;
+        }       
+
+
+    </script>
+</body>
+</html>

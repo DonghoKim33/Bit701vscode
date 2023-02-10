@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #car{
+            position: absolute;
+            width: 400px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            console.log(window.innerWidth);
+            var posX=window.innerWidth-400;
+            var car=document.getElementById("car");
+            car.style.left=posX+"px";//자동차를 브라우저 우측에 배치하기 위한 코드
+
+            //자동차가 왼쪽으로 이동하다가 0의 위치까지 가면 다시 원위치로
+            setInterval(function(){
+                posX-=20;
+                car.style.left=posX+"px";
+                if(posX<=0){
+                    posX=window.innerWidth-400;
+                }
+            },100);//0.1초마다 함수가 실행
+        }
+    </script>
+</head>
+<body>
+    <img src="../image/mycarimage/car7.png" id="car">
+
+</body>
+</html>

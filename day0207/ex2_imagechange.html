@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, body *{
+            font-size: 1.5rem;
+            font-family: 'Single Day';
+        }
+
+        #photo{
+            width: 300px;
+            height: 400px;
+            border: 10px inset gold;
+        }
+        
+        figure{
+            text-align: center;
+        }
+
+        .buttons{
+            margin-left: 130px;
+            margin-top: 10px;
+        }
+
+        .buttons button{
+            width: 100px;
+            height: 100px;
+            background-color: plum;
+            color: blue;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .radius30{
+            border-radius: 30px;
+        }
+        .radius60{
+            border-radius: 60px;
+        }
+
+    </style>
+</head>
+<body>
+    <figure>
+        <img src="../image/moviestar/13.jpg" id="photo" title="박신혜">
+        <figcaption>
+            <b id="irum">박신혜</b>
+        </figcaption>
+    </figure>
+
+    <div class="buttons">
+        <button type="button" id="btn1">수지</button>
+        <button type="button" id="btn2">박보영</button>
+        <button type="button" id="btn3">유아인</button>
+        <button type="button" id="btn4">한예슬</button>
+    </div>
+
+    <script>
+        var p=document.getElementById("photo");
+        var irum=document.getElementById("irum");
+
+        document.getElementById("btn1").onclick=function(){
+            p.setAttribute("src","../image/moviestar/19.jpg");
+            p.setAttribute("title","수지입니다");
+            irum.innerHTML="<b style='color:green'>수지</b>";
+            //출력할 이름을 prompt로 입력받아서 출력해보자
+            var myname=prompt("출력할 이름을 입력해주세요","수지");
+            //취소를 누를경우 '이름을 입력해주세요' 라고 출력하기
+
+            if(myname==null)
+                irum.innerText="이름을 입력해주세요";
+            else
+                irum.innerHTML=`<b style='color:green'>${myname}</b>`;
+        
+        }
+
+        document.getElementById("btn2").onclick=function(){
+            p.setAttribute("src","../image/moviestar/12.jpg");
+            p.setAttribute("title","박보영입니다");
+            irum.innerHTML="<b style='color:magenta'>박보영</b>";
+            //사진의 class를 radius30으로 변경
+            p.setAttribute("class","radius30");            
+        }
+
+        document.getElementById("btn3").onclick=function(){
+            p.setAttribute("src","../image/moviestar/20.jpg");
+            p.setAttribute("title","유아인입니다");
+            irum.innerHTML="<b style='color:red'>유아인</b>";
+            p.setAttribute("class","radius60");   
+        }
+
+        document.getElementById("btn4").onclick=function(){
+            p.setAttribute("src","../image/moviestar/6.jpg");
+            p.setAttribute("title","한예슬입니다");
+            irum.innerHTML="<b style='color:gray'>한예슬</b>";
+            //사진의 class 속성 없애기
+            p.setAttribute("class","")    
+        }
+    </script>
+
+</body>
+</html>

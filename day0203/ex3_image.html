@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        figure{
+            float: left;/*가로방향 정렬, 나중에 해제 clear:both */
+        }
+        /*바로 아래의 하위 태그를 의미, 공백: 모든 하위 태그 ex)figure b*/
+        figure>img{
+            width: 100px;
+            height: 100px;
+            border-radius: 100px; /*모서리를 둥글게*/
+        }
+        /* figure>figcaption>b{ */
+        figure b{
+            font-family: "궁서체"; 
+            color:blueviolet;
+        }
+        
+        /* 제목을 가운데로 보내기 */
+        figure>figcaption{
+            text-align: center;
+        }
+        h2{
+            font-family: 'Gamja Flower';
+            /* 글자색과 배경색을 변경해보자 */
+            color: #2e8b57; /*16진수로 표현 */
+            /* background-color: rgb(206, 176, 196); */
+            background-color: rgba(206, 176, 196, 0.3); 마지막 alpha 값은 0~1 투명~불투명
+        }
+    </style>
+</head>
+<body>
+    <h2>이미지 아래 이름을 넣어보자</h2>
+    <img src="../photo/1.jpg" width="130" border="1">
+    <img src="../photo/2.jpg" width="130" border="1">
+    <img src="../photo/3.jpg" width="130" border="1">
+    <br>
+    <b style="margin-left: 40px;">샌드위치</b>
+    <b style="margin-left: 80px;">꼬치</b>
+    <b style="margin-left: 90px;">육개장</b>
+    <hr>
+    <h2>이미지와 라벨을 세트로 넣어보자</h2>
+    <figure>
+        <img src="../photo/11.jpg" width="130">
+        <figcaption>
+            <b>망고빙수</b>
+        </figcaption>
+    </figure>
+    <figure>
+        <img src="../photo/8.jpg" width="130">
+        <figcaption>
+            <b>샌드위치</b>
+        </figcaption>
+    </figure>
+    <figure>
+        <img src="../photo/5.jpg" width="130">
+        <figcaption>
+            <b>콘치즈</b>
+        </figcaption>
+    </figure>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body *{
+            font-size: 1.2rem;
+            font-family: 'Single Day';
+        }
+    </style>
+</head>
+<body>
+    <div style="margin: 30px 20px;">
+        <b>이름 : </b>
+        <input type="text" id="textname" style="width:100px"
+        autofocus><br><br>
+        <b>자바 : </b>
+        <input type="text" id="textjava" style="width:100px"><br><br>
+        <b>HTML : </b>
+        <input type="text" id="texthtml" style="width:100px"><br><br>
+
+        <button type="button" id="btnresult"
+        style="margin-left: 50px":>결과확인</button>
+
+        <div id="result" style="margin:30px;">결과</div>
+            
+        <script>
+            //자바점수를 입력후 포커스가 벗어날때 발생하는 이벤트
+            document.getElementById("textjava").onblur=function(){
+                if(isNaN(this.value)){
+                    alert("숫자로만 입력해주세요");
+                    this.value="" //입력값 지우기
+                    this.focus(); //포커스 주기
+                    return; //여기서 이벤트 함수 종료한다.(다음 이벤트 실행x)
+                }
+            
+                //0~100을 벗어날 경우 경고표시 후 지우기
+                // if(this.value<0 || this.value>100){
+                    if(!(this.value>=0 && this.value<=100))
+                    {
+                    alert("0~100사이값을 입력해주세요")
+                    this.value="";
+                    this.focus();
+                }
+            }
+
+            document.getElementById("texthtml").onblur=function(){
+                if(isNaN(this.value)){
+                    alert("숫자로만 입력해주세요");
+                    this.value="" //입력값 지우기
+                    this.focus(); //포커스 주기
+                    return; //여기서 이벤트 함수 종료한다.(다음 이벤트 실행x)
+                }
+            
+                //0~100을 벗어날 경우 경고표시 후 지우기
+                // if(this.value<0 || this.value>100){
+                    if(!(this.value>=0 && this.value<=100))
+                    {
+                    alert("0~100사이값을 입력해주세요")
+                    this.value="";
+                    this.focus();
+                }
+            }
+
+            //버튼 이벤트
+            document.getElementById("btnresult").onclick=function(){
+                //이름
+                var irum = document.getElementById("textname").value;
+                //자바점수
+                var java=Number(document.getElementById("textjava").value);
+                //HTML
+                var html=Number(document.getElementById("texthtml").value);
+                //총점
+                var total=java+html;
+                //평균
+                var avg=total/2;
+
+                //div의 요소값을 미리 얻는다.
+                var r=document.getElementById("result");
+
+                //r에 결과값을 넣는다.
+            //     r.innerHTML="이 름 : "+irum+"<br>";
+            //     r.innerHTML+="자바점수 : "+java+"<br>"; //기존값에 추가할 경우 += 사용
+            //     r.innerHTML+="HTML점수 : "+html+"<br>";
+            //     r.innerHTML+="총점 : "+total+"<br>";
+            //     r.innerHTML+="평균 : "+avg+"<br>";
+
+                //또는 es6의 리터럴 문자열로 표시
+                var s=
+                `
+                이름 : ${irum}
+                자바 : ${java}
+                html : ${html}
+                총점 : ${total}
+                평균 : ${avg}
+                 `;
+
+                 r.innerText=s;
+                }
+        </script>
+    </div>
+</body>
+</html>

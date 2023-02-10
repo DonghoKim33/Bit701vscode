@@ -1,0 +1,49 @@
+**특정요소에서 속성의 값을 반환하면 그 값을 변수가 받는다.
+변수명=요소값.getAttribute("속성값");
+
+**특정요소에서 속성의 값을 변경하고자 할 경우.
+요소값.setAttribute("속성값","변경할 값")
+
+**특정요소안에 HTML태그를 포함해서 넣으려면
+요소값.innerHTML="html을 포함한 문자열";
+    (예) a.innerHTML="happy<br>nice";
+
+        a.innerHTML+="<br>하하하";
+        (출력)
+        happy
+        nice
+        하하하
+
+        또는 es6의 리터럴 문자 사용 ``
+        a.innerHTML=`happy<br>
+          nice<br>
+          하하하`;
+
+**특정요소안에 단순한 텍스트만 넣을 경우
+요소값.innerText="문자열";
+
+**isNaN(NaN : Not a Number) : 숫자가 아닐경우 true를 반환
+(예)isNaN("Sa")=> true
+    isNaN("100")=> false
+    isNaN("apple 100")=>true
+
+**특정태그에서 id를 이용해서 요소값(인스턴스)를 얻으려면
+변수명=document.getElementById("아이디")
+
+** eval("수식") : 문자열 형태의 수식을 계산하여 반환한다.
+(예)eval("4*5) =>20
+    eval("5+6")=>11
+
+** 숫자 형태의 문자열을 계산 가능한 정수로 변경하려면
+(예)var a="5"; //string 으로 인식(타입확인하는 방법 typeof(변수))
+    var b="6"; //string
+    console.log(a+b) => 56(+인 경우는 문자열로 인식해서 나열)
+    console.log(a-b); =>-1(+를 제외한 연산자는 숫자로 자동계산)
+
+    parseInt(a) : 문자열 a를 정수타입으로 반환(b는 타입이 number)
+
+    (예)parseInt("7") => 숫자 7을 반환
+        parseInt("7.5") => 숫자 7 을 반환
+        parseFloat("7.5") => 숫자 7.5를 반환
+        Number("7") => 숫자 7을 반환
+        Number("7.5") =>숫자 7.5를 반환

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        /*div 태그의 class가 title인 경우에만 적용*/
+        div.title{
+            /*상위 태그의 2.5배의 글자 크기
+            rem:최상위 태그의 배술 지정할 경우*/
+            font-size: 2.5em;
+            font-family: "Jua";
+            text-align: center;
+            text-shadow: 3px 3px 3px gray;
+        }
+        
+        div.menu{
+            text-align: center;
+        }
+        
+        div.menu>ul{
+            list-style: none;
+        }
+
+        div.menu>ul>li{
+            float: left;
+            font-family: 'Gamja Flower';
+            font-size: 24px;
+            width:150px;
+            height: 70px;
+            line-height: 70px;
+            margin-right: 10px;
+            border: 2px solid tomato;
+            border-radius: 20px;
+            background-color: #afeeee;
+            color: #c71585;
+        }
+        /*마우스를 올렸을때 스타일적용*/
+        div.menu>ul>li:hover{
+            background-color: #2e8b57;
+            color: yellow;
+            cursor: pointer;
+            box-shadow: 5px 5px 5px gray;
+        }
+
+        /*클릭시 적용*/
+        div.menu>ul>li:active{
+            background-color: black;
+            color: white;
+        }
+
+        img.main_photo{
+            /*위치 변경*/
+            position: absolute;/*absolute: 절대 좌표, relagtive: 상대좌표(현재위치 기준)*/
+            left: 200px;
+            top: 200px;
+        }
+
+        /*이미지 클릭시 위치 이동*/
+        img.main_photo:active{
+            left: 300px;
+            top: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">Bitcamp Class Menu</div>
+    <div class="menu">
+        <ul>
+            <li>메인</li>
+            <li>오시는길</li>
+            <li>클래스과정들</li>
+            <li>접수</li>
+        </ul>
+    </div>
+    <img src="../photo/C1.png" class="main_photo">
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습1</title>
+</head>
+<body>
+    <script>
+        var a=new Array();
+        a[0]="red";
+        a[1]="green";
+        a[2]="orange";
+        a[3]="blue";
+        a[4]="gray";
+
+        document.write(`${a.length}<br>`);
+        for(var i=0;i<a.length;i++){
+            document.write(`<b style="color:${a[i]}">${a[i]}</b><br>`)
+        }
+    </script>
+    <script>
+        var b=new Array();
+        b.push("../image/animal/C7.png");
+        
+        for(var i=0;i<b.length;i++){
+            document.write(`<img src="${b[i]}"<br>`);
+        }
+    </script>
+    <script>
+        var c=["장미꽃","안개꽃","국화꽃","다알리아","칸나"];
+    
+        for(var i=0;i<c.length;i++)
+            document.write(`<div> ${c[i]} </div>`)
+    </script>
+    <script>
+        for(var q of c)
+            document.write(`<div>${q}</div>`)
+    </script>
+    <script>
+        for(var idx in c)
+            document.write(`<div>${idx}:${c[idx]}</div>`)
+    </script>
+    <hr>
+    <table border="1" style="border-collapse: collapse;width: 300px">
+        <tr>
+            <th>번호</th><th>꽃이름</th><th>색상</th>
+        </tr>
+        <script>
+            var s=""
+            for (var idx in a){
+                s+="<tr bgcolor="+a[idx]+">";
+                s+="<td align=center>"+(Number(idx)+1)+"</td>";
+                s+="<td>"+c[idx]+"</td>";
+                s+="<td>"+a[idx]+"</td>";
+                s+="</tr>";
+            }
+            document.write(s);
+        </script>
+    </table>
+</body>
+</html>

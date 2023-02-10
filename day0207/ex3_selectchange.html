@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <img id="animal" src="../image/animal/C1.png">
+    <br><br>
+    <select id="sel">
+        <option value="../image/animal/C1.png">귀염둥이 고양이1</option>
+        <option value="../image/animal/C2.png">귀염둥이 고양이2</option>
+        <option value="../image/animal/C3.png">귀염둥이 고양이3</option>
+        <option value="../image/animal/C4.png">귀염둥이 고양이4</option>
+        <option value="../image/animal/C5.png">귀염둥이 고양이5</option>
+        <option value="../image/animal/C6.png">귀염둥이 고양이6</option>
+        <option value="../image/animal/C7.png">귀염둥이 고양이7</option>
+        <option value="../image/animal/C8.png">귀염둥이 고양이8</option>
+    </select>
+    <script>
+        document.getElementById("sel").onchange=function(e){
+            //this는 이벤트가 발생한 자기 자신을 나타내는 인스턴스 변수이다.
+            // alert(this.value);
+
+            //두번째 방법은 event 를 이용해서 얻는 방법이다. function에 e넣어줘야함
+            //e.target은 이벤트가 발생한 요소를 의미한다(여기서는 this와 같은 의미)
+            //alert(e.target.value);
+           
+            //이미지의 src를 select에서 얻은 값으로 변경해보자
+            // document.getElementById("animal").setAttribute("src",e.target.value);
+            document.getElementById("animal").setAttribute("src",this.value);
+
+        }
+    </script>
+    <br><br>
+    <b>선종류변경</b>
+    <select id="selborder">
+        <!--첫줄 고정 제목을 추가-->
+        <option selected disabled hidden>select border</option>
+        <option value="5px inset gray">테두리선1</option>
+        <option value="10px solid orange">테두리선2</option>
+        <option value="5px dotted pink">테두리선3</option>
+        <option value="1px dashed green">테두리선4</option>
+        <option value="1px groove gold">테두리선5</option>
+    </select>
+        
+    <script>
+        document.getElementById("selborder").onchange=function(){
+            //style 값 변경시
+            document.getElementById("animal").style.border=this.value;
+        }
+
+    </script>
+</body>
+</html>

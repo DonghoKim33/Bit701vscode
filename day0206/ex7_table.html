@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body *{
+            font-size: 1.5rem;
+            font-family: 'Single Day';
+        }
+
+        table.sawon_table{
+            width: 500px;
+            border-collapse: collapse;
+            border: 5px inset gray
+
+        }
+        table.sawon_table tbody img{
+            width: 80px;
+            height: 80px;
+            border-radius: 100px;
+        }
+        
+        table.sawon_table>thead>tr>th{
+            border-bottom: 5px double gray;
+            border-right: 1px dotted gray;
+            background-color: greenyellow;
+        }
+
+        table.sawon_table>tbody td{
+            border: 1px solid gray;
+        }
+        
+        table.sawon_table tbody tr:hover{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <table class="sawon_table">
+        <caption>사내 직원 현황</caption>
+        <!--제목부분-->
+        <thead>
+            <tr>
+                <th>성별</th>
+                <th>이름</th>
+                <th>전공</th>
+                <th>사진</th>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td rowspan="2" bgcolor="#ffffcc">여자</td>
+                <td>박신혜</td>
+                <td>음악</td>
+                <td align="center">
+                    <img src="../image/moviestar/13.jpg">
+                </td>
+            </tr>
+            <tr>
+                <td>박보영</td>
+                <td>컴퓨터공학</td>
+                <td align="center">
+                    <img src="../image/moviestar/12.jpg">
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="3" bgcolor="aabbcc">남자</td>
+                <td>김우빈</td>
+                <td>체육</td>
+                <td align="center">
+                    <img src="../image/moviestar/2.jpg">
+                </td>
+            </tr>
+            <tr>
+                <td>여진구</td>
+                <td>디지털미디어</td>
+                <td align="center">
+                    <img src="../image/moviestar/1.jpg">
+            </tr>
+            <tr>
+                <td>유아인</td>
+                <td>미술</td>
+                <td align="center">
+                    <img src="../image/moviestar/20.jpg">
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
