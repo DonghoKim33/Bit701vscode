@@ -36,4 +36,4 @@ git 명령어를 처리하기 위한 git bash 다운 후 설치
     git pull origin master
 ** master 브랜치에 angel 브랜치의 코드를 병합하려면
     git chechout master
-    git merge anel
+    git merge angel

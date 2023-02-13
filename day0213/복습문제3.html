@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--구구단 숫자를 입력ㅎ 후 엔터를 누르면 해당 구구단을 div 태그에 출력하시오
+    단, 조건1: 입력을 안하고 엔터를 누를 시 "숫자를 입력해주세요"
+        조건2: 숫자가 아닐 경우 "숫자로만 입력해주세요"-->
+        <b>구구단 숫자입력: </b>
+        <input type="text" id="gugu" style="width: 100px">
+
+        <div id="result" style="font-size: 2em;">
+        </div>
+        <script>
+            document.getElementById("gugu").onkeyup=function(e){
+                var su=e.target.value;
+                //13: ascii(아스키)zhem dpsxjdml 10진수값
+                if(e.keyCode==13){
+                    console.log(su);
+                    //조건1: 값이 없을경우
+                    if(su==""){
+                        alert("숫자를 입력해주세요.")
+                        this.focus();
+                        return;
+                    }
+                    //조건2: 숫자가 아닐 경우
+                    if(isNaN(su)){
+                        alert("숫자로만 입력해주세요")
+                        this.valsu="";
+                        this.focus();
+                        return;
+                    }
+
+                    //조건3 : 2~9가 아닐경우 경고 후 종료
+                    if(su<2 || su>9){
+                        alert("2~9사이 숫자로 입력해주세요");
+                        this.value="";
+                        this.focus();
+                        return;
+                    }
+
+                    var s=`[${su}단]<br><br>`;
+
+                    for(var i=2 ; i<=9; i++){
+                        s+=`${su}x${i}=${su*i}<br>`;
+                    }
+                    document.getElementById("result").innerHTML=(s);
+
+                }
+            
+
+            }
+               
+                    
+        </script>
+        
+</body>
+</html>
