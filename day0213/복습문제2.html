@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img.food{
+            width: 100px;
+            height: 100px;
+            border: 2px solid gray;
+            margin-right: 10px
+        }
+    </style>
+</head>
+<body>
+    <!--food 폴더의 1.jpg부터 10.jpg 이미지를 자바스크립트 for 문을 이용하여
+    사진을 출력하고 class명을 food로 지정 후
+    style에서 width,height,border,margin-right 를 설정하시오-->
+    <script>
+        for(var i=1; i<=10; i++){
+            document.write(`<img src="../image/food/${i}.jpg" class="food">`);
+        }
+    </script>
+    
+</body>
+</html>

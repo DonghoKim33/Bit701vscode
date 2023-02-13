@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1" style="border-collapse: collapse; width: 500px;">
+        <caption><b>작은 사진에 이벤트</b></caption>
+        <tr>
+            <th width="100" class="star">
+                <img src="../image/moviestar/12.jpg" width=80">
+                <br>
+                <b>박보영</b>
+            </th>
+            <td align="center" rowspan="5">
+                <img src="../image/moviestar/12.jpg" width="300" class="bigphoto">
+                <br>
+                <h2>박보영</h2>
+            </td>
+        </tr>
+        <tr>
+            <th width="100" class="star">
+                <img src="../image/moviestar/13.jpg" width=80">
+                <br>
+                <b>박신혜</b>
+            </th>
+        </tr>
+        <tr>
+            <th width="100" class="star">
+                <img src="../image/moviestar/17.jpg" width=80">
+                <br>
+                <b>신민아</b>
+            </th>
+        </tr>
+        <tr>
+            <th width="100" class="star">
+                <img src="../image/moviestar/18.jpg" width=80">
+                <br>
+                <b>신세경</b>
+            </th>
+        </tr>
+        <tr>
+            <th width="100" class="star">
+                <img src="../image/moviestar/15.jpg" width=80">
+                <br>
+                <b>설현</b>
+            </th>
+        </tr>
+    </table>
+    <script>
+        //작은 사진들의 요소값을 배열형태로 얻는다.
+        var imgarr=document.querySelectorAll("th.star>img");
+        
+        for(var smallphoto of imgarr){
+            //작은 사진에 마우스를 올렸을때 이벤트
+            smallphoto.onmouseover=function(){
+                //작은 사진의 src값
+                var smallsrc=this.getAttribute("src");
+                console.log(smallsrc);
+                //큰 사진의 src값에 위의 사진을 넣어준다.
+                document.querySelector(".bigphoto").setAttribute("src",smallsrc);
+
+                //b태그의 글자를 얻어 h2태그로 보낸다
+                //이벤트가 발생한 이미지의 부모(th)로 가서 하위 태그를 찾는다
+                var starname=this.parentElement.querySelector("b").innerText;
+                //위에서 얻은 스타 이름을 h2태그안에 글자로 넣는다.
+                document.querySelector("h2").innerText=starname;
+            }
+        }
+    </script>
+</body>
+
+</html>
