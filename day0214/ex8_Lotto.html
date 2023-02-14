@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+       body, body *{
+            font-family: 'Single Day';
+        }
+
+        div.title{
+            font-size:  30px;
+            margin: 30px 30px;
+        }
+        div.title .num{
+            color: blue;
+
+        }
+
+        div.title .day{
+            color: red;
+            font-size: 22px;
+        }
+        
+        div.box{
+            display: flex;
+        }
+
+        body{
+            background-color: rgb(127, 219, 255);
+        }
+        div.box{
+            width: 630px;
+            height: 120px;
+            background-color: white;
+            margin-left: 20px;
+            margin-top: 20px;
+            border-radius: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title"><b class="num">1025</b>회 
+        <b class="day">0000-00-00</b></div>
+        
+    <div class="box">
+        <div class="lotto">1</div>
+        <div class="lotto">1</div>
+        <div class="lotto">1</div>
+        <div class="lotto">1</div>
+        <div class="lotto">1</div>
+        <div class="lotto">1</div>
+    </div>
+
+    <button type="button" id="btnlotto">로또 숫자 구하기</button>
+</body>
+</html>

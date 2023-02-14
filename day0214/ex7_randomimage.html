@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+       body, body *{
+            font-family: 'Single Day';
+        }
+        .photo{
+            width: 230px;
+            height: 250px;
+            border: 10px inset goldenrod;
+        }
+
+        .message{
+            margin-left: 50px;
+            text-shadow: 5px 5px 5px gray;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var arrimage= new Array();
+            arrimage.push("../image/animal/C4.png");
+            arrimage.push("../image/animal/C8.png");
+            arrimage.push("../image/moviestar/12.jpg");
+            arrimage.push("../image/moviestar/16.jpg");
+            arrimage.push("../image/div_img/beauty3.jpg");
+            arrimage.push("../image/div_img/beauty4.jpg");
+
+            var arrmessage=["오늘은 발렌타인데이", "재미있는 자바스크립트", "Have a Good Day!!!","오늘 점심은 뭐 먹을까요?", "공부하자 공부해...."]
+        
+            //1초마다 임의로 사진과 메세지가 바뀌도록 해주세요.
+            setInterval(()=>{
+                let idx=parseInt(Math.random()*6);
+
+                let idx2=parseInt(Math.random()*5);
+
+                document.querySelector(".photo").setAttribute("src",arrimage[idx]);
+                document.querySelector(".message").innerText=arrmessage[idx2];
+            },1000)
+        }
+
+    </script>
+</head>
+<body>
+    <img src="../image/div_img/beauty3.jpg" class="photo">
+    <br><br>
+    <h1 class="message">Happy Day!!!</h1>
+</body>
+</html>
