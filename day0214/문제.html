@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <script>
+        window.onload=function(){
+            document.getElementById("txtin").onkeyup=function(e){
+                if(e.keyCode==13){
+                    let v=this.value;
+                    document.querySelector(".result").innerText=v;
+                }
+            }
+
+            let fontsize=document.querySelectorAll(".fontsize");
+            for(let i=0;i<fontsize.length;i++){
+                fontsize[i].onclick=function(){
+                    document.querySelector(".result").style.fontSize=fontsize[i].value;
+                }
+            }
+
+            document.getElementById("txtcolor").onchange=function(){
+                let a=this.value
+                document.querySelector(".message").style.color=a
+            }
+            document.getElementById("bgcolor").onchange=function(){
+                let a=this.value
+                document.querySelector(".result").style.backgroundColor=a
+            }
+
+            let font=document.querySelectorAll(".font");
+            for(let i=0;i<font.length;i++){
+                font[i].onclick=function(){
+                document.querySelector(".result").style.fontFamily=font[i].value;
+                }
+            }
+            
+            document.querySelector("#chkbox").onclick=function(){
+                if(this.checked){
+                    document.querySelector(".result").style.border= "10px inset goldenrod"
+                }
+                else{
+                    document.querySelector(".result").style.border="1px solid black"
+                }
+            }
+
+        
+        }
+    </script>
+
+
+</head>
+<body>
+    <b>입력후 엔터를 누르세요:</b>
+    <input type="text" id="txtin" value="안녕하세요" width="300px">
+    <label><input type="checkbox" id="chkbox" value="none">테두리</label>
+    <br>
+    <b>글자크기:</b>
+    <label><input type="radio" class="fontsize" value="10px" name="fontsize">10px</label>
+    <label><input type="radio" class="fontsize" value="20px" name="fontsize">20px</label>
+    <label><input type="radio" class="fontsize" value="30px" name="fontsize">30px</label>
+    <label><input type="radio" class="fontsize" value="35px" name="fontsize">35px</label><br>
+    <b>글자색: </b><input type="color" id="txtcolor" value="#cfcfcf"><b>  배경색: </b><input type="color" id="bgcolor" value="blue"><br>
+    <b>글꼴선택:</b>
+    <label><input type="radio" class="font" value="Jua" name="font">Jua</label>
+    <label><input type="radio" class="font" value="Nanum Pen Script" name="font">Nanum</label>
+    <label><input type="radio" class="font" value="Single Day" name="font">Single</label>
+    <label><input type="radio" class="font" value="Gamja Flower" name="font">Gamja</label>
+    <br><br><br>
+    <div style="width: 600px; height: 150px; border: 1px solid black;text-align: center; line-height: 150px;" class="result">
+        <b class="message">안녕하세요</b>
+    </div>
+</body>
+</html>
