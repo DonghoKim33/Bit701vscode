@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+
+    <script>
+        window.onload=function(){
+            //canvas 태그의 요소값
+            let can=document.getElementById("can");
+            //context값을 얻는다
+            let ctx=can.getContext("2d");
+            //사각형
+            ctx.strokeStyle="green";//선색지정
+            ctx.lineWidth=5;//선굵기
+            ctx.strokeRect(10,10,100,100); //x,y,w,h  테두리선만있는 사각형
+
+            //채워진 사각형
+            ctx.fillStyle="rgba(253,159,175,1)";
+            ctx.fillRect(120,10,100,100);
+
+            //그래픽 글자
+            ctx.fillStyle="orange";
+            //글자 그림자
+            ctx.shadowOffsetX=5;
+            ctx.shadowOffsetY=5;
+            ctx.shadowBlur=10;
+            ctx.shadowColor="gray";
+            ctx.font="30px Comic Sans MS";//글꼴크기와 글꼴명
+            ctx.fillText("Have a Nice Day!!",10,150);//문자열 x y
+
+             //그래픽 글자
+             ctx.fillStyle="green";
+            //글자 그림자
+            ctx.shadowOffsetX=5;
+            ctx.shadowOffsetY=5;
+            ctx.shadowBlur=10;
+            ctx.shadowColor="red";
+            ctx.font="30px Gamja Flower";//글꼴크기와 글꼴명
+            ctx.fillText("안녕하세요!!",10,200);//문자열 x y
+            
+            //이미지 넣기
+            let photo=new Image();
+            photo.src="../image/animal/C8.png";
+
+            photo.onload=function(){
+                ctx.drawImage(photo,300,50);
+            }
+
+            //선그리기
+            ctx.lineWidth=3;//선굵기
+            ctx.strokeStyle="magenta";//선색
+            ctx.beginPath();//선그리기 시작
+            ctx.moveTo(50,300);//x,y좌표로 이동
+            ctx.lineTo(300,300); //x,y좌표까지 선을 그린다
+            ctx.lineTo(175,220);
+            ctx.lineTo(50,300);
+            ctx.stroke();//실제 캔바스에 선을 나타낸다
+            ctx.closePath();//선그리끝
+        }
+    </script>
+</head>
+<body>
+    <h2>HTML5의 Canvas 기능</h2>
+    <canvas id="can" width="500" height="400" style="border: 1px solid black"></canvas>
+    <br>
+    <!--로그인 페이지로 이동-->
+    <a href="ex3_loginstorage.html">로그인으로 이동(a태그)</a>
+    <br>
+    <button type="button" onclick="location.href='ex3_loginstorage.html'">로그인으로 이동(버튼)</button>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        div.result{
+            position: absolute;
+            left: 200px;
+            top: 200px;
+            font-size: 35px;
+            font-family: Jua;
+            width: 500px;
+            height: 150px;
+            line-height: 150px;
+            border: 1px solid gray;
+            text-align: center;
+        }
+
+        div.c{
+            position: absolute;
+            top: 30px;
+            left: 200px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var r=document.querySelector("div.result")
+
+            document.getElementById("txtinput").onkeyup=function(e){
+                if(e.keyCode==13){
+                    r.innerText=this.value;
+                }
+            }            
+
+            document.getElementById("chkborder").onclick=function(){
+                if(this.checked){
+                    r.style.border="10px inset gold";
+            }
+            else    
+                r.style.border="1px solid gray";
+            }
+       
+            document.getElementById("fcolor").onchange=function(){
+                r.style.color=this.value;
+            }
+
+            document.getElementById("bcolor").onchange=function(){
+                r.style.backgroundColor=this.value;
+            }
+        
+            var fname=document.getElementById("fname");
+            for (var i=0;i<fname.length;i++){
+                fname[i].onclick=function(){
+                    r.style.fontFamily=this.value;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="c">
+        <b>입력후 엔터를 누르세요  :  </b>
+        <input type="text" id="txtinput" placeholder="입력후 엔터" style="width: 250px;">
+        &nbsp;&nbsp;&nbsp;
+        <input type="checkbox" id="chkborder">테두리
+
+        <br>
+        <b>글자크기 :  </b>
+        <label><input type="radio" name="fsize" value="10px">10px</label>
+        <label><input type="radio" name="fsize" value="20px">20px</label>
+        <label><input type="radio" name="fsize" value="30px">30px</label>
+        <label><input type="radio" name="fsize" value="35px" checked>35px</label>
+        <br>
+        <b>글자색 : </b>
+        <input type="color" id="fcolor" value="#000000">
+        &nbsp;&nbsp;&nbsp;
+        <b>배경색 :  </b>
+        <input type="color" id="bcolor" value="#000000">
+        <input type="radio" name="fname" value="Jua">Jua
+        <input type="radio" name="fname" value="Nanum pen Script">Nanum
+        <input type="radio" name="fname" value="Single Day">Single
+        <input type="radio" name="fname" value="Gamja Flower">Gamja
+    </div>
+    <div class="result">비트캠프</div>
+</body>
+</html>

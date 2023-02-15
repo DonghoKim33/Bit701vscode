@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body, body*{
+            font-family:'Single Day'
+        }
+
+        #view{
+            position: absolute;
+            left: 200px;
+            top: 50px;
+            font-size: 20px;
+        }
+    </style>
+
+    
+</head>
+<body>
+    <!--Web Storage: 클라이언트의 브라우저에 소량의 데이타를 저장해두기 위한 기억공간(자바의 쿠키와 비슷)
+    localStorage : 반영구적 보관 크기는 약 5MB
+    sessionStorage : 세션이 유효한만큼만 보관-->
+    <h2>localStorage & sessionStorage</h2>    
+
+    <button type="button" id="btnadd">저장</button>
+    <br>
+    <button type="button" id="btndel">삭제</button>
+    <br>
+    <button type="button" id="btnalldel">전체삭제</button>
+    <br>
+    <button type="button" id="btnview">내용보기</button>
+    <br>
+    <div id="view">결과...</div>
+
+    <script>
+        document.getElementById("btnadd").onclick=function(){
+            //localStorage에 값을 저장하는 방법 3가지
+            //localStorage는 내가 지우지 않으면 영구적으로 남아있다
+            localStorage.setItem("loginid","master");
+            localStorage.address="서울시 강남구";
+            localStorage["hp"]="010-1111-2222";
+
+            sessionStorage.className="Java701";//브라우저를 닫으면 제거된다
+        }
+        document.getElementById("btndel").onclick=function(){
+            //address 지워보자
+            localStorage.removeItem("address");
+        }
+
+        document.getElementById("btnalldel").onclick=function(){
+            //전체 로컬스토리지 삭제
+            localStorage.clear();    
+        }
+
+        document.getElementById("btnview").onclick=function(){
+            //얻는 3가지 방법
+            let loginid=localStorage.getItem("loginid");
+            let address=localStorage.address;
+            let hp=localStorage["hp"];
+
+            document.getElementById("view").innerText=
+            `loginid : ${loginid}
+            address : ${address}
+            hp : ${hp}`;
+        }
+
+    </script>
+</body>
+</html>
