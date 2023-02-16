@@ -1,0 +1,126 @@
+/*공통*/
+body{
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+    font-family: '돋움';
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover{
+    color: #333;
+    text-decoration: none;
+}
+
+/*header*/
+#header{
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+#header h1{
+    float: left;
+    padding: 15px 5px 7px 5px;
+}
+
+#header #s_nav{
+    float: right;
+    padding-top: 20px;
+    margin-bottom:1em;
+}
+
+#header #s_nav li{
+    float: left;
+ 
+}
+
+#header #s_nav li a{
+    margin: 0 20px;
+    font-size: 0.8em;
+    padding-left: 20px;    
+}
+
+#header #s_nav li.contact{
+    background: url("images/icn_contact.jpg") no-repeat left center;
+}
+
+#header #s_nav li.news{
+    background: url("images/icn_news.jpg") no-repeat left center;
+}
+
+#header #s_nav li.sitemap{
+        background: url("images/icn_sitemap.jpg") no-repeat left center;
+}
+
+#header p img{
+    width: 100%;
+    height: auto;
+    max-width: 960px;
+}
+
+/*media 960px 이하 적용*/
+@media screen and (mix-width:960px){
+    #section article{width: 33%;}
+    #news{float: none; width: 95%;}
+    #information{float: none; width: 95%;}
+}
+
+/*767px 이하만 적용*/
+@media screen and (max-width:767px){
+    #header{text-align: center;}
+    #header h1{float: none;}
+    #header #s_nav{float: none; width: 66%; margin: 10px auto;}
+    #header #s_nav li a{padding-left: 1px;}
+
+    #nav{border-bottom: none; height: 150px;}
+    #nav ul li{width: 49%; border-bottom: 1px solid #000;}
+    #nav ul li.n2,#nav ul li.n4{border-right: none;}
+
+    #section article{width: 50%;}
+    #footer{text-align: center;}
+}
+
+/*nav*/
+#nav {width:100%; max-width:960px; margin:10px auto; border-bottom:3px double #000; height:50px;}
+#nav ul li {float:left; width:16%; text-align:center; border-right:1px solid #000;}
+#nav ul li.n6 {border-right:none;}
+
+
+/*contents*/
+#contents {width:100%; max-width:960px; margin:10px auto; background:url(../images/bg_footer.jpg) no-repeat center bottom; padding-bottom:150px;}
+
+
+/*section*/
+#section article {float:left; width:20%; text-align:center; margin-bottom:30px; min-width:120px;}
+#section article img {width:100%; max-width:184px; height:auto;}
+#section article h2 {color:#030; font-size:0.9em;}
+#section article p {text-align:justify; font-size:0.7em; line-height:2em; padding:0 15px;}
+
+
+/*news*/
+#news {float:left; width:45%; margin-left:5px;}
+#news h2 {background:url(../images/bg_headerLine.jpg) repeat-x left bottom; padding-bottom:10px; margin:0 5px 15px 0;}
+#news article h3 {font-size:0.9em; background:url(../images/icn_arrow.jpg) no-repeat left center; padding-left:7px;}
+#news article p {line-height:1.5em; font-size:0.8em; margin:0 0 20px 10px;}
+
+
+/* information*/
+#information {float:right; width:45%; margin-left:5px;}
+#information h2 {background:url(../images/bg_headerLine.jpg) repeat-x left bottom; padding-bottom:10px; margin:0 5px 15px 0;}
+#information ul li {width:100%; margin-bottom:5px;}
+#information ul li img {width:98%; max-width:470px; height:auto;}
+
+
+/*top_btn*/
+#top_btn {position:fixed;bottom:10px;right:1px;}
+
+
+/*footer*/
+#footer {border-top:10px solid #000; width:100%; max-width:960px; margin:0 auto;}
+#footer div {margin:20px 0 0 20px;}
+#footer address {font-style:normal; line-height:1.5em;}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, body *{
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li{
+            list-style: none;
+        }
+
+        header, section{
+            display: block;
+        }
+
+        a{
+            text-decoration: none;
+            color:#000;
+        }
+
+        a:hover{
+            text-decoration: underline;
+            color: #fff;
+        }
+
+        body{
+            font: 12px '돋움';
+        }
+
+        #wrap{
+            width: 925px;
+            margin: 0 auto;
+        }
+
+        /*header*/
+        #top>.quick{
+            text-align: right;
+            background-color: #ccc;
+            border-bottom: 1px solid #666;
+        }
+
+        #top>.quick>li{
+            display: inline;
+            margin: 0 5px;
+        }
+
+        /*section*/
+
+        /*총 0개의 상품이 있습니다.-> 이부분*/
+        .txt1{
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .txt2{
+            color: #900
+        }
+        .items{
+            width: 870px;
+            padding-left: 20px;
+        }
+
+        dl.item{
+            width: 200px;
+            height: 300px;
+            border: 1px solid #000;
+            float: left;
+            margin-bottom: 20px;
+            margin-left: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        dl.item dd.mask{
+            position: absolute;
+            left: 0;
+            top: 260px;
+            background-color: rgba(255,255,255,0.7);
+            width: 200px;
+            height: 150px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;/*효과*/
+        }
+
+        dl.item dd.mask:hover{
+            top: 185px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header id="top">
+            <ul class="quick">
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">마이페이지</a></li>
+                <li><a href="#">장바구니</a></li>
+                <li><a href="#">고객센터</a></li>
+            </ul><!-- quick -->
+        </header><!-- top -->
+        <section id="content">
+        <p class="txt1">*총 <span class="txt2">120</span>개의 상품이 있습니다.</p>
+            <div class="items">
+                <!--목록을 만들때 주로 사용-->
+                <!--<dl>은 반드시 하나 이상의 <dt>-<d>짝을 담고 있어야 한다-->
+                    <!--<dt><dd>는 <dl>밖에서 독립적으로 사용할 수 없다-->
+                <dl class="item"><!--Description-List-->
+                    <!--Description-Term-->
+                    <dt><img src="../image/shop/7.jpg" width="200" height="300" alt="photo"></dt>
+                    <!--Description-Description-->
+                    <dd class="mask">
+                           <p><a href="#">포트테일(레이어드 이중지퍼)</a></p>
+                        <p>요녀석하나만 손쉽게<br>오늘의 라이트스타일 완성<br>고민끝!!</p>
+                        <p><a href="#">Detail View</a><br>가격문의</p>
+                    </dd>            
+                </dl><!-- item -->
+                <dl class="item">
+                    <dt><img src="../image/shop/3.jpg" width="200" height="300" alt="photo"></dt>
+                    <dd class="mask">
+                           <p><a href="#">포트테일(레이어드 이중지퍼)</a></p>
+                        <p>요녀석하나만 손쉽게<br>오늘의 라이트스타일 완성<br>고민끝!!</p>
+                        <p><a href="#">Detail View</a><br>가격문의</p>
+                    </dd>            
+                </dl><!-- item -->
+                <dl class="item">
+                    <dt><img src="../image/shop/2.jpg" width="200" height="300" alt="photo"></dt>
+                    <dd class="mask">
+                           <p><a href="#">포트테일(레이어드 이중지퍼)</a></p>
+                        <p>요녀석하나만 손쉽게<br>오늘의 라이트스타일 완성<br>고민끝!!</p>
+                        <p><a href="#">Detail View</a><br>가격문의</p>
+                    </dd>            
+                </dl><!-- item -->
+                <dl class="item">
+                    <dt><img src="../image/shop/28.jpg" width="200" height="300" alt="photo"></dt>
+                    <dd class="mask">
+                           <p><a href="#">포트테일(레이어드 이중지퍼)</a></p>
+                        <p>요녀석하나만 손쉽게<br>오늘의 라이트스타일 완성<br>고민끝!!</p>
+                        <p><a href="#">Detail View</a><br>가격문의</p>
+                    </dd>            
+                </dl><!-- item -->
+                <dl class="item">
+                    <dt><img src="../image/shop/30.jpg" width="200" height="300" alt="photo"></dt>
+                    <dd class="mask">
+                           <p><a href="#">포트테일(레이어드 이중지퍼)</a></p>
+                        <p>요녀석하나만 손쉽게<br>오늘의 라이트스타일 완성<br>고민끝!!</p>
+                        <p><a href="#">Detail View</a><br>가격문의</p>
+                    </dd>            
+                </dl><!-- item -->
+                <dl class="item">
+                    <dt><img src="../image/shop/31.jpg" width="200" height="300" alt="photo"></dt>
+                    <dd class="mask">
+                           <p><a href="#">포트테일(레이어드 이중지퍼)</a></p>
+                        <p>요녀석하나만 손쉽게<br>오늘의 라이트스타일 완성<br>고민끝!!</p>
+                        <p><a href="#">Detail View</a><br>가격문의</p>
+                    </dd>            
+                </dl><!-- item -->
+                <dl class="item">
+                    <dt><img src="../image/shop/23.jpg" width="200" height="300" alt="photo"></dt>
+                    <dd class="mask">
+                           <p><a href="#">포트테일(레이어드 이중지퍼)</a></p>
+                        <p>요녀석하나만 손쉽게<br>오늘의 라이트스타일 완성<br>고민끝!!</p>
+                        <p><a href="#">Detail View</a><br>가격문의</p>
+                    </dd>            
+                </dl><!-- item -->
+                <dl class="item">
+                    <dt><img src="../image/shop/19.jpg" width="200" height="300" alt="photo"></dt>
+                    <dd class="mask">
+                           <p><a href="#">포트테일(레이어드 이중지퍼)</a></p>
+                        <p>요녀석하나만 손쉽게<br>오늘의 라이트스타일 완성<br>고민끝!!</p>
+                        <p><a href="#">Detail View</a><br>가격문의</p>
+                    </dd>            
+                </dl><!-- item -->            
+            </div><!-- items -->
+        </section><!-- content -->
+    </div><!-- wrap -->
+    
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*ex1, ex2 공통 css*/
+        #ex1,#ex2{
+            background-color: #903;
+            width: 100px;
+            height: 20px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        /*마우스를 올렸을때 width를 400px로 변경*/
+        #ex1:hover, #ex2:hover{
+            width:400px;
+        }
+        /*width 변경시 효과*/
+        #ex1{
+            transition-property: width;
+            transition-duration: 2s;/*2초*/
+
+        }
+        #ex2{
+            transition: width 5s;/*위의 속성 2개를 한번에*/
+        }
+        #ex3 img{
+            width: 100px;
+            height: 100px;
+            opacity: 0.2;
+            border: 5px solid #900;
+            transform: rotate(10deg);
+            cursor: pointer;
+            transition: all 1s;
+        }
+        /*이미지에 마우스를 올리면 아래 3개가 모두 변한다*/
+        #ex3 img:hover{
+            opacity: 1.0;/*투명도(0~1)*/
+            border-color: #900;
+            transform: rotate(45deg);
+        }
+        
+    </style>
+</head>
+<body>
+    <p id="ex1"> transition test</p>
+    <p id="ex2"> transition test</p>
+    <p id="ex3"> 
+        <img src="../image/food/1.jpg">
+    </p>
+
+</body>
+</html>

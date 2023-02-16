@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,div,section,figure,figcaption,img{
+            padding: 0;
+            margin: 0;
+        }
+
+        section .figure,figcaption{
+            display: block;
+        }
+
+        #wrap{
+            width: 90%;
+            margin: 10px auto;
+        }
+
+        /*section*/
+        #photo figcaption{ display: none;}
+        #photo img{
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <section id="photo">
+            <figure>
+                <img src="../image/mainImage/K-034.png"
+                width="800" height="200" alt="사진1">
+                <figcaption><b>이미지1</b></figcaption>
+            </figure>
+            <figure>
+                <img src="../image/mainImage/K-036.png"
+                width="800" height="200" alt="사진2">
+                <figcaption><b>이미지2</b></figcaption>
+            </figure>
+            <figure>
+                <img src="../image/mainImage/K-040.png"
+                width="800" height="200" alt="사진3">
+                <figcaption><b>이미지3</b></figcaption>
+            </figure>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+body *{
+    font-family:'Lobster';
+}
+
+nav, ul, li{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    display: block;
+}
+
+ul, li{
+    list-style: none;
+}
+
+ul{
+    margin-bottom: 30px;
+}
+
+a{
+    text-decoration: none;
+}
+.clear{
+    clear: both;
+}
+
+/*menu1*/
+.menu1 li a{
+    background-color: #990;
+    color: #fff;
+    width: 85px;
+    display: block;
+    margin-bottom: 3px;
+    height: 33px;
+    padding: 8px;
+    transition: width 1.5s;
+}
+
+.menu1 li a:hover{
+    color: #900;
+    letter-spacing: 3px;
+    width: 400px;
+}
+
+/*menu2*/
+.menu2{
+    height: 100px;
+}
+.menu2 li a{
+    font-family: 'Comic sans MS';
+    float: left;
+    background-color: #3cb371;
+    color: #fffacd;
+    margin-right: 3px;
+    width: 85px;
+    height: 35px;
+    padding: 8px;
+    transition: height 1s;/*마우스 오버시 높이가 변경된다.*/
+}
+
+.menu2 li a:hover{
+    background-color: #afeeee;
+    color: #db7093;
+    height: 100px;
+
+}
+
+/*menu3*/
+.menu3 li a{
+    float: left;
+    background-color: #87cefa;
+    color: #fff;
+    margin-right: 3px;
+    width: 85px;
+    height: 35px;
+    padding: 8px;
+    transition: background 1s, clor 1s;
+}
+
+.menu3 li a:hover{
+    background-color: tomato;
+    color: steelblue;
+}
+
+/*nav main*/
+
+#main_menu{
+    margin-top: 20px;
+}
+
+#main_menu li a{
+    color:#333;
+    background-color:#9c0;
+    width: 150px;
+    display: block;
+    text-align: center;
+    padding: 5px;
+    transition: all 0.3s; 
+}
+
+#main_menu li a:hover{
+    color: #fff;
+    background-color: #000;
+    background: url(../image/animal/C1.png) no-repeat right center;
+    background-size: 30px 30px;
+}

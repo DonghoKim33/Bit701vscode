@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+
+    <style>
+        h1{
+            font: bold 2em "Jua";
+            text-align: center;
+        }
+        /*1024이상일 경우*/
+        @media all and (min-width:1024px){
+            body{
+                background: url("../image/div_img/beauty2.jpg") no-repeat;
+                background-size: cover;
+            }
+            h1{
+                    color:#f00
+            }   
+        }
+
+        /*761~1023*/
+        @media all and (min-width:761px) and (max-width:1023px){
+            body{
+                background-color: orange;
+            }
+            h1{
+                background-color: aqua;
+                color: blue;
+            }
+        }
+        @media all and (max-width:760px){
+            body{
+                background-image: url("../image/animal/C7.png");
+                background-repeat: no-repeat;
+                background-position: right bottom;
+            }
+            h1{
+                background-color: #000;
+                color: #fff;
+                font-family: Gamja Flower;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>반응형 테스트</h1>
+</body>
+</html>
