@@ -29,7 +29,7 @@
 
             //7. section 태그 아래의 h3 의 border, 글꼴, 글자색 변경
 
-            $(".happy").css({
+            $("header.happy").css({
                 "color":"yellow",
                 "background-color":"brown"
             });
@@ -42,7 +42,10 @@
             $(".one img").eq(1).attr("src","../image/jquery_image/09.png");
 
             $("#photo").attr("src",$("img").eq(0).attr("src"))
-         
+            // let photo=$("img").eq(0).attr("src");
+            // $("#photo").attr("src",photo);
+
+
             $("ul li").css({
                 "font-family":"Jua",
                 "color":"aqua"
@@ -51,6 +54,7 @@
             $("ul li").mouseover(function(){
                 $(this).css({
                     "color":"red",
+                    "width":"60px",
                     "cursor":"pointer"
 
                 });
@@ -59,6 +63,7 @@
             $("ul li").mouseout(function(){
                 $(this).css({
                     "color":"aqua",
+                    "width":"60px",
                     "cursor":"pointer"
                 });
             });
