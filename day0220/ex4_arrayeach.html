@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+       body, body *{
+            font-family: 'Single Day';
+        }
+
+        div.one>div.box1{
+            float:left;
+            width: 130px;
+            height: 70px;
+            line-height: 70px;
+            font-size: 1.3em;
+            text-align: center;
+        }
+
+        .photo{
+            width: 80px;
+            height: 80px;
+            border: 1px solid gray;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="one"></div>
+    <script>
+        let array1=["orange","green","tomato","pink","gray"];
+        /*
+        array1 배열을 반복하여, .one에 div를 넣는데 text로 색상을 넣고 해당 색상이 배경색에도 적용되도록 해보자
+        */
+       //배열 each문
+       //idx는 배열 인덱스, item은 배열안의 값
+       $.each(array1,function(idx,item){
+            $("div.one").append(`<div class='box1' style="background-color:${item}">${idx}:${item}</div>`);
+       });
+    </script>
+    <hr>
+    <div class="two" style="clear : both;"></div>
+    <script>
+        let array2=new Array();
+        array2.push("../image/animal/C8.png");
+        array2.push("../image/animal/C3.png");
+        array2.push("../image/jquery_image/08.png");
+        array2.push("../image/food/11.jpg");
+        array2.push("../image/food/1.jpg");
+
+        //array2의 이미지를 div.two에 넣고 class 를 photo로 지정 후 적당한 css 추가하기
+        $.each(array2,function(idx,item){
+            $("div.two").append(`<img src="${item}" class="photo">`);
+            // $("div.two").append("<img src='"+item+"' class=photo>");
+        })
+    </script>
+    <hr>
+    <div class="three"></div>
+    <script>
+        //배열에 json 형태의 데이터 넣기
+        let array3=[
+            {"message":"Hello","color":"red"},
+            {"message":"안녕하세요","color":"green"},
+            {"message":"반가워요","color":"pink"}
+        ];
+
+        $.each(array3,function(idx,item){
+            $("div.three").append("<h1 style='color:"+item.color+"'>"+item.message+"</h1>");
+        });
+    </script>
+</body>
+</html>

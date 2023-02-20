@@ -13,8 +13,29 @@
             font-family: 'Single Day';
 
         }
+
+        table tr{
+            height: 100px;
+            line-height:100px;
+            font-size:30px;    
+        
+        }
         
     </style>
+    <script>
+        $(function(){
+        //table 위에 h1 태그를 만든 후 
+        // td 에 마우스를 올리면 해당 글자색을 css로 얻어서 h1에 그 값을 출력시키고
+        // h1의 배경색에도 적용시켜주세요
+            $("td").mouseover(function(){
+                //글자색을 얻는다
+                let fontcolor=$(this).css("color");
+                $("h1").text(fontcolor);
+                $("h1").css("background-color",fontcolor);
+                // console.log(fontcolor)
+            });
+    });
+    </script>
 </head>
 <body>
     <!--
@@ -23,9 +44,42 @@
             글자의 크기는 30px 각 칸의 정가운데 나오게 해주세요
             글자색은 랜덤하게 rgb값을 구해서 적용시켜주세요
 
-        table 위에 h1 태그를 만든 후 
-        td 에 마우스를 올리면 해당 글자색을 css로 얻어서 h1에 그 값을 출력시키고
-        h1의 배경색에도 적용시켜주세요
+        
     -->
+    <h1>여기에 색상표 출력</h1>
+    <table class="table table-bordered" style="width: 500px;">
+        <script>
+            //1~100 사이의 중복되지 않은 난수를 25개 구한다
+            let numArr=new Array(25);
+            for(let i=0;i<numArr.length;i++){
+                numArr[i]=parseInt(Math.random()*100)+1;
+                for(let j=0;j<i;j++){
+                    if(numArr[i]==numArr[j]){
+                        i--;
+                        break;
+                    }
+                }
+            }
+            console.log(numArr);
+
+            let idx=0;
+
+            for(let row=1;row<=5;row++){
+                document.write("<tr>");
+                for(let col=1;col<=5;col++){
+                    let r=parseInt(Math.random()*256)
+                    let g=parseInt(Math.random()*256)
+                    let b=parseInt(Math.random()*256)
+                    //방법1
+                //     document.write("<td align=center style='background-color:rgb("+r+","+g+","+b+")'>"
+                //         +numArr[idx++]+"</td>");
+                // 
+                    document.write(`<td align=center style='color:rgb(${r},${g},${b})'>${numArr[idx++]}</td>`);
+                }
+                    //방법2
+                document.write("</tr>");
+            }
+        </script>
+    </table>
 </body>
 </html>

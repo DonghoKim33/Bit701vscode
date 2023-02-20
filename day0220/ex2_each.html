@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+       body, body *{
+            font-family: 'Single Day';
+        }
+        div{
+            width:400px;
+            height: 130px;
+            line-height: 130px;
+            text-align: center;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .hello_0{
+            border: 10px inset magenta;
+            font-family: 'Jua';
+            background-color: firebrick;
+            color:aliceblue
+        }
+
+        .hello_1{
+            border: 10px solid magenta;
+            font-family: 'Jua';
+            background-color: yellow;
+            color:aliceblue
+        }
+
+        .hello_2{
+            border: 10px groove goldenrod;
+            font-family: 'Nanum Pen Script';
+            background-color: teal;
+            color:rebeccapurple
+        }
+
+        .hello_3{
+            border: 10px dotted burlywood;
+            font-family: 'Single Day';
+            background-color: powderblue;
+            color:sandybrown
+        }
+
+        .hello_4{
+            border: 10px double blue;
+            font-family: 'Gamja Flower';
+            background-color: lightblue;
+            color: chartreuse
+        }
+    </style>
+
+</head>
+<body>
+    <button type="button" class="btn btn-outline-info" style="margin-left: 100px;">스타일 적용</button>
+
+    <button type="button" class="btn btn-outline-danger">스타일 제거</button>
+    <br><br>
+
+    <div>안녕하세요</div>
+    <div>반가워요</div>
+    <div>제이쿼리 공부중 ...</div>
+    <div>오늘 점심은 뭘 먹을까</div>
+    <div>짬뽕 짜장면...?</div>
+
+    <script>
+        $("button:eq(0)").click(function(){
+            $("div").each(function(idx){
+                $(this).addClass("hello_"+idx);
+            });
+        })
+
+        $("button:eq(1)").click(function(){
+            $("div").each(function(idx){
+                $(this).removeClass("hello_"+idx);
+            });
+
+            // $("div").removeClass();//모든 클래스 제거
+        })
+
+        
+    </script>
+</body>
+</html>
