@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+       body, body *{
+            font-family: 'Single Day';
+        }
+    </style>
+
+</head>
+<body>
+    <form>
+        <legend>폼태그 연습-text,checkbox 등</legend>
+        <table class="table table-bordered" style="width: 400px">
+            <tr>
+                <th width="100" bgcolor="orange">이름</th>
+                <td>
+                    <input type="text" id="txtname" placeholder="input name" autofocus class="form-control" required    >
+                </td>
+            </tr>
+            <tr>
+                <th width="100" bgcolor="orange">운전면허</th>
+                <td>
+                    <label>
+                        <input type="checkbox" id="chklic" class="form-check-input">운전면허
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <th width="100" bgcolor="orange">글자색</th>
+                <td>
+                    <label>
+                        <input type="color" id="tcolor" value="#abcdef">
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <th width="100" bgcolor="orange">생년월일</th>
+                <td>
+                    <label>
+                        <input type="date" id="birth" value="2023-01-01">
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <th width="100" bgcolor="orange">점수</th>
+                <td>
+                    <label>
+                        <input type="number" id="score" value="50" step="5" class="form-control">
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="submit" class="btn btn-outline-danger" style="width: 100px;">데이타 읽기</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        $("form").submit(function(e){
+            e.preventDefault();//기본 이벤트를 무효화(form의 기본 이벤트는 action이 호출되며 백엔드로 form 데이터를 넘겨주는 역할, function에 e변수 필요)
+            // alert("submit");
+
+            // $("div.view").text("");//일단 안의 데이터 지우고 출력 append 사용시에 필요
+            let name=$("#txtname").val();
+
+            //체크박스 value 값과 체크상태 알아보기
+            //체크박스는 val()은 무조건 on(value지정이 안된경우)
+            //is(":checked"): true/false 체크상태 반환
+            console.log($("#chklic").val(),$("#chklic").is(":checked"));
+            //글자색 읽기
+            let tcolor=$("#tcolor").val();
+            $("div.view").html(
+                `
+                이름 : ${name}<br>
+                운전면허 : ${$("#chklic").is(":checked") ? "있음":"없음"}<br> 
+                글자색 : ${tcolor}<br>
+                생년월일 : ${$("#birth").val()}<br>
+                점수 : ${$("#score").val()}
+                `
+            ).css("color",tcolor)
+        })
+    </script>
+    <div class="view alert alert-warning" style="width: 400px;"></div>
+</body>
+</html>

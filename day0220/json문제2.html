@@ -33,7 +33,8 @@
 <body>
 <div id="show"></div>
 <script>
-    let todayhome=[
+    let todayhome={
+        "homeicon":[
      {
         "img" : "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-166485672496321483.png/512/none",
         "title" :  "쇼핑하기"
@@ -72,14 +73,14 @@
     {
         "img" : "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-home_feed_shortcut_sets-166485740201992331.png/512/none",
         "title" : "리모델링"
-    }];
-
-    $.each(todayhome,function(idx,item){
+    }]
+    };
+    $.each(todayhome.homeicon,function(idx,item){
         $("#show").append(`
         <figure>
             <img src="${item.img}">
             <figcaption>
-                <h5>${item.title}</h4>
+                <h5>${item.title}</h5>
             </figcaption>
         </figure>
         `)
