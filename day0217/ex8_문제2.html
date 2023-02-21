@@ -70,13 +70,13 @@
                     let r=parseInt(Math.random()*256)
                     let g=parseInt(Math.random()*256)
                     let b=parseInt(Math.random()*256)
-                    //방법1
-                //     document.write("<td align=center style='background-color:rgb("+r+","+g+","+b+")'>"
-                //         +numArr[idx++]+"</td>");
-                // 
-                    document.write(`<td align=center style='color:rgb(${r},${g},${b})'>${numArr[idx++]}</td>`);
+                //방법1
+                    document.write("<td align=center style='color:rgb("+r+","+g+","+b+")'>"
+                        +numArr[idx++]+"</td>");
+                //방법2
+                    // document.write(`<td align=center style='color:rgb(${r},${g},${b})'>${numArr[idx++]}</td>`);
                 }
-                    //방법2
+                    
                 document.write("</tr>");
             }
         </script>
