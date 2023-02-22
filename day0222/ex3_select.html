@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body, body *{
+            font-family: 'Single Day';
+        }
+    </style>
+</head>
+<body>
+    <h4>select: value 값 없이 text만 있는 경우</h4>
+    <select id="sel1" class="form-select" style="width: 150px;">
+        <option>장미꽃</option>
+        <option>안개꽃</option>
+        <option>국화꽃</option>
+        <option>프리지아꽃</option>
+    </select>    
+    <div class="view1" style="font-size: 25px;"></div>
+    <hr>
+    <script>
+        $("#sel1").change(function(){
+            $(".view1").html("val():"+$("#sel1").val()+"<br>");
+            $(".view1").append("text():"+$("#sel1").text());
+        })
+    </script>
+    <h4>select:value와 text를 모두 얻고자 할 경우</h4>
+    <select id="sel2" class="form-select" style="width:150px;">
+        <option value="../image/jquery_image/m01.jpg">잔잔한 호수</option>
+        <option value="../image/jquery_image/m02.jpg">아름다운 오솔길</option>
+        <option value="../image/jquery_image/m07.jpg">계곡</option>
+        <option value="../image/jquery_image/m09.jpg">바다</option>
+    </select>
+    <div class="view2" style="font-size: 25px;"></div>
+    <hr>
+    <script>
+        $("#sel2").change(function(){
+            let imgSrc=$(this).val();//선택한 value 값
+            // let selectText=$(this).text();//4개의 text가 모두 나온다
+            
+            // let selectText=$("option:selected").text();//모든 select에서 선택된 text가 나온다
+
+            let selectText=$("#sel2 option:selected").text();//id선택 해야함 sel2 에서 선택된 option
+            console.log(imgSrc,selectText);
+
+            $(".view2").html(
+                `
+                <img src="${imgSrc}" border="1" width="130">
+                <br>
+                <h4>${selectText}</h4>    
+                `
+            );
+        });
+    </script>
+    <h4>select:value에 여러 데이터를 넣고 싶을때</h4>
+    <select id="sel3" class="form-select" style="width:150px;">
+        <option value="../image/food/1.jpg,12000">햄샌드위치</option>
+        <option value="../image/food/2.jpg,19000">꼬치구이</option>
+        <option value="../image/food/11.jpg,23000">망고빙수</option>
+        <option value="../image/food/12.jpg,13000">순두부라면</option>
+    </select>
+    <div class="view3" style="font-size: 22px;"></div>
+    <hr>
+    <script>
+        $("#sel3").change(function(){
+            //선택한 value값 얻기
+            let food=$(this).val();
+            let arr=food.split(",") //배열 타입으로 변경 ,로 분리=>["../image/food/11.jpg", "23000"] 이렇게 나옴
+            console.log(arr);
+            let foodSrc=arr[0];
+            let foodprice=arr[1];
+            // let foodname=$("#sel3 option:selected").text();//방법1
+            let foodname=$("option:selected",this).text();//this 를 넣으려면 뒤에 넣어야한다.
+            console.log(foodSrc,foodprice,foodname)
+            $(".view3").html(
+                `
+                <img src="${foodSrc}" border="1" width="130">
+                <br>
+                <h5>${foodname}</h5>
+                <h5>${foodprice}원</h5>
+                `
+            );
+        });
+    </script>
+</body>
+
+</html>

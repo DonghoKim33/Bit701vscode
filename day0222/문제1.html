@@ -69,25 +69,25 @@
         // let u=$(".u:checked").val();
         $(".b").click(function(){
             $(this).is(":checked")?$(".result").css("font-weight","bold"):$(".result").css("font-weight","");
-        })
+        });
         $(".i").click(function(){
             $(this).is(":checked")?$(".result").css("font-style","italic"):$(".result").css("font-style","");
-        })
+        });
         $(".u").click(function(){
             $(this).is(":checked")?$(".result").css("text-decoration","underline"):$(".result").css("text-decoration","");
-        })
+        });
 
         
         
         $("input[name='nf']").click(function(){
             let nf=$("input[name='nf']:checked").val();
             $(".result").css("font-family",nf)
-        })
+        });
 
         $("input[name='fs']").click(function(){
             let fs=$("input[name='fs']:checked").val();
             $(".result").css("font-size",fs)
-        })
+        });
 
         $("input[type=text]").keyup(function(e){
             if(e.keyCode==13){
@@ -95,7 +95,7 @@
                 $(".result").html(this.value);
             }
             
-        })
+        });
     </script>
 </body>
 </html>

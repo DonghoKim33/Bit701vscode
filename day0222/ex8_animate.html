@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <style>
+        body, body *{
+            font-family: 'Single Day';
+        }
+
+        #one{
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border: 1pxx solid gray;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <h2>jQuery animate 함수</h2>
+    <br>
+    <img src="../image/jquery_image/08.png">
+    <br><br>
+    <button type="button" class="btn btn-outline-danger" id="btn1">animate #1</button>
+    <button type="button" class="btn btn-outline-danger" id="btn2">animate #2</button>
+    <button type="button" class="btn btn-outline-danger" id="btn3">animate #3</button>
+
+    <div id="one"></div>
+    <script>
+        $("#btn1").click(function(){
+            //현재 width,height 기준으로 50px 증가(slow 천천히, fast빨리, 1/1000초 동안
+            $("#one").animate({"width":"+=50px","height":"+=50px"},'slow');
+        });
+
+        $("#btn2").click(function(){
+            $("#one").animate({"left":"+=30px"},"fast");
+        });
+
+        $("#btn3").click(function(){
+            $("img").animate({width:"200px",height:"200px",opacity:"0.5"},3000,function(){
+                //위의 효과가 모두 끝난 후 처리할 로직이나 효과등등
+                $(this).css({
+                    width:"100px",
+                    height:"100px",
+                    opacity:"1.0"
+                });
+                $(this).after("<h4>끝!</h4>");
+            })
+        });
+    </script>
+</body>
+</html>
