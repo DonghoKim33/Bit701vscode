@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body, body *{
+            font-family: 'Single Day';
+        }
+    </style>
+    <script>
+        $(function(){
+            let b2=`<button type="button" id="btn2" class="btn btn-success">버튼 2</button>`     
+            $("body").append(b2);  
+            
+            // //btn1
+            // $("#btn1").click(function(){
+            //     $(".view").html("<b>버튼 1 클릭</b>")
+            // });
+
+            // //btn2
+            // $("#btn2").click(function(){
+            //     $(".view").html("<b>버튼 2 클릭</b>")
+            // });
+
+            //on으로도 가능하다
+            $(document).on("click","#btn1",function(){
+                $(".view").html("<b>버튼 1 클릭</b>")
+            });
+        
+            $(document).on("click","#btn2",function(){
+                $(".view").html("<b>버튼 2 클릭</b>")
+
+                let b=`&nbsp;<button type="button" class="newbtn btn btn-danger">추가된 버튼</button>`;
+                $(this).after(b);
+            });
+
+            //나중에 추가된 .newbtn에 일반 이벤트를 넣어보자
+            //나중에 추가된 요소들은 기본 이벤트가 적용 안된다.
+            //무조건 on 이벤트를 실행야만 한다,,
+            // $(".newbtn").click(function(){
+            //     $(".view").html("추가된 버튼을 클릭했어요");
+            // });
+
+            $(document).on("click",".newbtn",function(){
+                $(".view").html("추가된 버튼을 클릭했어요");
+
+                let  rnd=parseInt(Math.random()*8)+1;//1~10
+                $("body").append(`<img src="../image/animal/C${rnd}.png" width="100">`);
+            });
+            $(document).on("mouseover","img",function(){
+                Img=$(this).attr("src");
+                $(this).attr("src","../image/food/11.jpg")
+            });
+            $(document).on("mouseout","img",function(){        
+                $(this).attr("src",Img)
+            });
+            
+        })
+    </script>
+</head>
+<body>
+    <h4>미래에 생기는 요소들에 이벤트처리를 할 경우 on 사용(현재, 미래요소 모두 가능)</h4>
+
+    <div class="view" style="font-size: 2em; margin: 30px;"></div>
+
+    <button type="button" id="btn1" class="btn btn-info">버튼 1</button>
+
+</body>
+</html>

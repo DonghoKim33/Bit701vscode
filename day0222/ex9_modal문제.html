@@ -29,7 +29,7 @@
 </head>
 <body>
      <!-- The Modal -->
-<div class="modal" id="myModal">
+<div class="modal" id="foodmodal">
     <div class="modal-dialog">
       <div class="modal-content">
   
@@ -41,9 +41,10 @@
   
         <!-- Modal body -->
         <div class="modal-body">
-          <img src="" class="modal_photo" style="width: 90%;">
-          <br>
-          <h3 class="modal_title"><b>메뉴명</b></h3>
+          <img src="" class="food_photo img-thumbnail" style="max-width: 100%;">
+          <br><br>
+          <h3 class="food_name"><b></b></h3>
+          <h4 class="food_price"><b></b></h4>
         </div>
   
         <!-- Modal footer -->
@@ -54,6 +55,7 @@
       </div>
     </div>
   </div>
+   <h4>BS5의 Moodal 연습</h4>
     <table class="table table-bordered" style="width: 400px;">
         <thead>
             <tr class="table-success">
@@ -82,7 +84,7 @@
                 //                 <td>${idx+1}</td>
                 //                 <td>${item.foodname}</td>
                 //                 <td>${item.foodprice}원</td>
-                //                 <td><img src="${item.foodsrc}" class="photo" data-bs-toggle="modal" data-bs-target="#myModal"></td>
+                //                 <td><img src="${item.foodsrc}" class="photo" data-bs-toggle="modal" data-bs-target=""foodmodal"></td>
                 //             </tr>
                 //         `;
 
@@ -91,10 +93,10 @@
                 // });
                 $.each(food_data.foodlist,function(idx,item){
                     let s="<tr>"
-                        s+="<td>"+(idx+1)+"</td>";
+                        s+="<td align=center>"+(idx+1)+"</td>";
                         s+="<td>"+item.foodname+"</td>";
-                        s+="<td>"+item.foodprice+"원</td>";
-                        s+="<td><img src='"+item.foodsrc+"'class='photo' data-bs-toggle='modal' data-bs-target='#myModal'></td>"
+                        s+="<td align=right>"+item.foodprice+"원</td>";
+                        s+="<td><img src='"+item.foodsrc+"'class='photo img-thumbnail' data-bs-toggle='modal' data-bs-target='#foodmodal'></td>"
                         s+="</tr>";
                         
                     document.write(s);
@@ -102,10 +104,10 @@
 
 
                 $("img.photo").click(function(){
-                    $(".modal_photo").attr("src",$(this).attr("src"))
+                    $(".food_photo").attr("src",$(this).attr("src"))
                 });
                 $("img.photo").click(function(){
-                    $(".modal_title").html(`${$(this).parent().prev().prev().text()}<br> ${$(this).parent().prev().text()}원`)
+                    $(".food_name").html(`${$(this).parent().prev().prev().text()}<br> ${$(this).parent().prev().text()}`)
                 });
                 
             </script>
