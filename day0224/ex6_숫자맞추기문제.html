@@ -43,35 +43,43 @@
         }
     </style>
     <script>
-        function init(){
-            let random= parseInt(Math.random()*100)+1;
-            console.log(random)
-            $("div.photo").html("")
-            $("div.result").html("1~100사이 난수 발생!")
-        }
+        let random="";
+        
         $(function(){
-            
+
+            init();//처음 시작시 랜덤숫자발생 및 초기화 작업
+
+            //다시 시작
+            $("#rebtn").click(function(){
+                init();
+            })
+
             $("#txtinput").keyup(function(e){
                 if(e.keyCode==13){
-                    let i= $(this).val();
+                    
                    $(".num").html(this.value);
-                }
-                if(i>random){
-                    
-                    $(".answer").html(`${i}보다 작습니다.`);
-                    
-                }else{
-                    $(".answer").html(`${i}, 틀렸습니다.`)
-                }
+                
+                    if($(this).val()>random){
+                        
+                        $(".answer").html(`${$(this).val()}보다 작습니다.`);
+                        
+                    }else if($(this).val()<random){
+                        $(".answer").html(`${$(this).val()}보다 큽니다.`)
+                    }else {
+                        $(".answer").html(`${random}, 정답입니다!`)
+                    }
+                    $(this).val("");
+            }
+            
             });
         });
-        // function init(){
-        //     let rnd_num=parseInt(Math.random()*100)+1;
-        //     console.log(rnd_num);
-        //     $("div.photo").html("")
-        //     $("div.result").html("1~100사이 난수 발생!")
-        // }
         
+        function init(){
+            random= parseInt(Math.random()*100)+1;
+            console.log(random)
+            $("div.photo").html("")
+            $("div.answer").html("1~100사이 난수 발생!")
+        }
     </script>
 </head>
 <body>
