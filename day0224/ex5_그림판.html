@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+
+    <style>
+       body, body *{
+            font-family: 'Single Day';
+        }
+        
+        #mypen>div{
+            width: 28px;
+            height: 28px;
+            border: 1px solid gray;
+            float: left;
+            cursor: pointer;
+            margin-right: 3px;
+        }
+
+        #can{
+            border: 2px solid black;
+            cursor: crosshair;
+        }
+
+        img{
+            width: 100px;
+            height: 100px;
+            border: 2px inset gray;
+        }
+    </style>
+
+    <script>
+        $(function(){
+            let draw=false;//마우스 버튼클릭시 true/ 놓을때 false로 변경
+            let can=document.getElementById("can");
+            let ctx=can.getContext("2d");
+            let preX,preY;//마우스 움직일때마다 직전좌표 저장용 변수
+            //초기펜 색상
+            ctx.strokeStyle="black";
+            //초기펜 굵기
+            ctx.lineWidth=3;
+            //선의 끝모양
+            ctx.lineCap="round"//선과 선을 이을때 부드럽게 보이도록 해준다.
+        
+
+            $("#can").bind({
+                mousedown:function(e){
+                    draw=true;
+                    //클릭한 현재 좌표를 preX,preY에 저장해 둔다.
+                    preX=e.pageX;
+                    preY=Number(e.pageY)-60;
+                },
+                mouseup:function(){
+                    draw=false;
+                },
+                mousemove:function(e){
+                    //마우스 버튼을 누른상태에서 마우스를 움직일때만 그림이 그려진다.
+                    if(draw){
+                        //선은 항상 begin 실행 후 그린다.
+                        ctx.beginPath();
+                        //선을 그리기 위한 위치로 변경
+                        ctx.moveTo(preX,preY);
+                        //마우스의 현재위치까지 선을 그린다.
+                        ctx.lineTo(e.pageX,Number(e.pageY)-60);
+
+                        ctx.stroke();//실제 선을 그려준다
+                        ctx.closePath();
+
+                        //현재 좌표를 이전좌표로 등록해둔다,
+                        preX=e.pageX;
+                        preY=Number(e.pageY)-60;
+                    }
+                }
+            });
+
+            //색상표를 클릭시 선색이 바뀌도록
+            $("#mypen div").click(function(){
+                let color=$(this).css("background-color")
+                ctx.strokeStyle=color;
+                ctx.lineWidth=3;
+            })
+
+            $("#btn1").click(function(){
+                ctx.clearRect(0,0,500,500)
+            })
+            $("#btn2").click(function(){
+                ctx.strokeStyle='#ffffff'
+                ctx.lineWidth=15;
+            })
+            $("#btn3").click(function(){
+                let myimg=`<img src="${can.toDataURL()}">`
+                $(".save").after(myimg);
+            })
+         });
+    </script>
+</head>
+<body>
+    <h4>HTML5와 jQuery로 만드는 그림판</h4>
+    <br>
+    <canvas id="can" width="500" height="500" style="border: 2px solid black"></canvas>
+    <div id="mypen">
+        <div style="background-color: aquamarine;"></div>
+        <div style="background-color: rgb(109, 48, 213);"></div>
+        <div style="background-color: rgb(201, 109, 33);"></div>
+        <div style="background-color: rgb(213, 74, 74);"></div>
+        <div style="background-color: rgb(32, 32, 187);"></div>
+        <div style="background-color: rgb(33, 185, 44);"></div>
+        <div style="background-color: rgb(255, 251, 2);"></div>
+        <div style="background-color: rgb(255, 41, 244);"></div>
+        <div style="background-color: rgb(14, 255, 146);"></div>
+        <div style="background-color: rgb(255, 200, 50);"></div>
+        <div style="background-color: rgb(135, 0, 13);"></div>
+        <div style="background-color: rgb(208, 255, 239);"></div>
+        <div style="background-color: rgb(38, 255, 9);"></div>
+        <div style="background-color: rgb(0, 229, 255);"></div>
+        <div style="background-color: rgb(200, 144, 0);"></div>
+        <div style="background-color: rgb(255, 43, 142);"></div>
+    </div>
+    <br style="clear: both;"><br>
+    <button type="button" id="btn1" class="btn btn-outline-danger" style="margin-left: 100px">
+        화면 초기화  
+    </button>
+    <button type="button" id="btn2" class="btn btn-outline-danger">
+        지우개
+    </button>
+    <button type="button" id="btn3" class="btn btn-outline-danger">
+        별도보관
+    </button>
+    <hr class="save">
+    
+</body>
+</html>

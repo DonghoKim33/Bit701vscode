@@ -31,6 +31,7 @@
             border: 10px groove goldenrod;
             text-align: center;
             vertical-align: 200px;
+            border-radius: 30px;
         }
         div.list{
             position: absolute;
@@ -96,7 +97,7 @@
             if(thname!=="" && mvname!==""){
             $(".view h2.th").html(`극장명 : ${thname}`)
             $(".view h2.mv").html(`영화제목 : ${mvname}`)
-        }else{
+            }else{
             $(".view h2.th").html(`극장과 영화를 선택하여주시기바랍니다.`)
         }
         });
@@ -106,7 +107,7 @@
             if(thname!=="" && mvname!==""){
             $(".view h2.th").html(`극장명 : ${thname}`)
             $(".view h2.mv").html(`영화제목 : ${mvname}`)
-        }else{
+            }else{
             $(".view h2.th").html(`극장과 영화를 선택하여주시기바랍니다.`)
         }
         });

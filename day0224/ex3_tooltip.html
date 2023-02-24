@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+
+
+    <style>
+       body, body *{
+            font-family: 'Single Day';
+        }
+
+        div.mytooltip{
+            position: absolute;
+            line-height: 1.5;
+            color: black;
+            width: 200px;
+            background-color: #F90;
+            border: 2px solid white;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 30px;
+            position: absolute;
+            opacity: 0.8;
+            display: none;
+        }
+
+        .view{
+            cursor: pointer;
+            background-color: #ccc;
+        }
+
+        ol.today li{
+            cursor: pointer;
+            font-size: 22px;
+            width: 200px;
+        }
+
+        ol.today li:hover{
+            background-color: rgba(0,0,0,0.3);
+        }
+
+        
+    </style>
+
+    <script>
+        $(function(){
+            $("a").bind({
+                mousemove:function(e){
+                    console.log(e.pageX,e.pageY);
+                    $("div.mytooltip").css({
+                        "left":e.pageX+"px",
+                        "top":e.pageY+"px"
+                    })
+                },
+                mouseover:function(){
+                    $("div.mytooltip").fadeIn('fast')
+                    $("div.mytooltip").html(`
+                    Java<br>
+                    HTML5<br>
+                    Css<br>
+                    MYSQL
+                    `).css("background-color","#f90");
+                },
+                mouseout:function(){
+                    $("div.mytooltip").fadeOut('fast')
+                }
+            });
+
+            $("b.view").bind({
+                mouseover:function(){
+                    //태그에 들어있는 색상 얻기
+                    let color=$(this).attr("color");
+                    let text=$(this).text();
+                    $("div.mytooltip").css("background-color",color).html(text);
+                    $("div.mytooltip").fadeIn();
+                },
+                mouseout:function(){
+                    $("div.mytooltip").fadeOut();
+                },
+                mousemove:function(e){
+                    $("div.mytooltip").css({
+                        left:e.pageX+"px",top:e.pageY+"px"
+                    })
+                }
+            })
+            $("ol.today li").bind({
+                mouseenter:function(){
+                    let img=$(this).attr("photo");
+                    let text=$(this).text();
+                    $("div.mytooltip").html(`
+                    <b>${text}</b><br>
+                    <img src="${img}" width="100">
+                    `)
+                    $("div.mytooltip").show();
+                },
+                mouseleave:function(){
+                    $("div.mytooltip").hide();
+                },
+                mousemove:function(e){
+                    $("div.mytooltip").css({
+                        left:e.pageX+"px",top:e.pageY+"px"
+                    });
+                }
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <h4 class="alert alert-info"Tooltip 링크 부분에 마우스를 올려보세요></h4>
+    <br><br>
+    <a style="font-size: 25px; cursor: pointer;">Tooltip
+        TooltipTooltipTooltipTooltipTooltipTooltipTooltipTooltipTooltip</a>
+
+        <pre>
+            <b class="view" color="yellow">네이버가 굿팩터</b>(수익 배분에 인센티브를 주는 요소)에 '기자 페이지 구독자 수'와 '연재물 구독' 지표를 추가해 반영한다. 그동안 굿팩터에는 열독률 지표만 있었다. 
+
+기자 구독자 수는 상대적으로 매체 규모가 작은 언론사에 불리한데, 특별히 이를 상쇄할 수 있는 보정값을 두지는 않는다. 특히 연재물은 조회수 기준으로 수익에 반영한다. 
+
+네이버는 22일 오후 '뉴스 서비스 및 수익모델 변경사항 온라인 설명회'를 개최했다. 지난 16일 오는 4월1일부터 언론사 모바일 첫 화면에 나오는 언론사 편집판 '주요뉴스' 기사 6개와 '심층기획' 탭에 있는 기사들에 한해 아웃링크를 적용할 수 있게 하겠다고 밝혔다. 아웃링크를 선택한 매체는 언론사 구독판에 아웃링크를 채택하고 있다는 사실을 고지할 예정이다. 
+        
+언론사들은 오는 22일부터 다음달 10일까지 <b class="view" color="pink">아웃링크</b> 운영을 요청할 수 있다. 한번 선택하면 4월1일부터 9월30일까지 운영해야 한다. 운영 기간은 4월1일부터 내년 3월까지 12개월이다. 
+
+언론사당 연재는 200개까지만 만들 수 있다. 서비스 노출은 100개까지 가능하다. 기사마다 연재 제목을 달아야 묶음 처리가 가능하다. 만일 연재물을 쓰던 기자가 3개월 동안 부득이한 사정으로 연재물을 쓰지 않을 경우 잠시 중지시켰다가 다시 시작할 수도 있다. 다만 중지하는 기간에는 정산에 반영되지 않는다. 네이버는 스포츠·연예·상업적 목적·단순 화제성 모음 등의 연재물은 부적합한 연재물로 볼 예정이다. 
+
+속보 남용으로 얻는 트래픽으로 인한 수익도 제한한다. <b class="view" color="green">네이버</b> 관계자는 설명회에서 "A언론사가 트래픽 100이 발생하면 속보에서 5를 차지한다. 매달 평균값이 있을 건데, 지나치게 트래픽이 발생한 사례가 있다. 매달 평균치의 두 배까지만 인정할 거다. 2월 전체 언론사의 속보 비중이 5%였다면 2월에는 10%까지만 인정하고 반영할 것"이라며 "11%가 나왔으면 1%는 전체 트래픽에 포함하지 않고 정산할 거다. 이런 사례가 많지는 않다. 포털로 인해 과도한 속보 경쟁을 막기 위해 진행한다고 이해해달라"고 말했다. 
+
+네이버는 각 언론사에 퇴사자 기자 페이지 관리를 잘 해 달라고 당부했다. 기자 정보가 변경되면 수정, 삭제, 등록해야 하는데 특히 퇴사자 정보를 직접 삭제하지 않았을 경우 지표에서 곧바로 차단할 예정이다.
+        </pre>
+        <hr>
+        <h2>오늘 나의 식사 및 쇼핑 목록입니다.</h2>
+        <ol type="1" class="today">
+            <li photo="../image/food/1.jpg">에그샌드위치</li>
+            <li photo="../image/food/11.jpg">망고빙수</li>
+            <li photo="../image/shop/8.jpg">회색꽈배기스웨터</li>
+            <li photo="../image/shop/29.jpg">여름용 모자</li>
+
+        </ol>
+    <div class="mytooltip">
+        Java<br>
+        HTML5<br>
+        Css<br>
+        MYSQL
+    </div>
+</body>
+</html>
