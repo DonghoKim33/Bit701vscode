@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+     <style>
+       body, body *{
+            font-family: 'Single Day';
+        }
+
+
+        div.box *{
+            font-size: 20px;
+        }
+
+
+        #calendar{
+            font-size: 28px;
+            margin-top: 20px;
+            margin-left: 5px;
+        }
+
+
+        #calendar thead tr{
+            background-color: darksalmon;
+            color: blue;
+            border-bottom: 5px double green;
+        }
+    </style>
+    <script>
+        let selectYear,selectMonth;
+
+
+        $(function(){
+            //선택한 년도와 월은 선택전에 현재날짜를 초기값으로 지정한다
+            selectYear=curYear;
+            selectMonth=curMonth;
+
+
+            //처음 시작시 현재 년도와 월로 달력 그리기
+            cal_view(curYear,curMonth);
+
+
+            //년도 변경시
+            $("#selyear").change(function(){
+                selectYear=$(this).val();              
+                cal_view(selectYear,selectMonth);
+            });
+
+
+            //월 변경시
+            $("#selmonth").change(function(){
+                selectMonth=$(this).val();              
+                cal_view(selectYear,selectMonth);
+            });
+        });
+
+
+        function cal_view(year,month)
+        {
+           // alert(year+","+month);
+           let d=new Date(year,month-1,1);
+           //선택한 년,월의 1일의 요일숫자 구하기
+           let week=d.getDay();
+           let endday;
+           //입력한 년도의 월이 몇일까지 있는지 구하기
+            switch (Number(month)) {
+            case 2:
+                //윤년이면 29일 평년이면 28일
+                if(year%4==0 && year%100!=0 || year%400==0)
+                    endday=29;
+                else
+                    endday=28;
+                break;
+            case 4:  case 6: case 9: case 11:
+                endday=30;
+                break;
+   
+            default:
+                endday=31;
+                break;
+            }
+
+
+            let s=`
+                <table class='table table-bordered'>
+                    <thead>
+                        <tr>
+                            <th>일</th><th>월</th><th>화</th>
+                            <th>수</th><th>목</th><th>금</th>
+                            <th>토</th>
+                        </tr>
+                    </thead>
+            `;
+
+
+            //week 갯수만큼 빈칸 그리기
+            s+="<tr>";
+            for(let i=1;i<=week;i++){
+                s+="<td></td>";
+            }
+            console.log(month,endday);
+            //1일부터 endday까지 출력(7의배수에서 줄나누기)
+            for(let i=1;i<=endday;i++){
+                week++;
+                s+=`<td>${i}</td>`;
+                if(week%7==0){
+                    s+="</tr><tr>";
+                }
+            }
+
+
+            s+="</tr>";
+
+
+            s+="</table>";
+            $("#calendar").html(s);
+        }
+    </script>
+</head>
+<body>
+   <div style="width: 600px;">
+      <h4 class="alert alert-info">달력 만들기</h4>
+      <div class="input-group box">
+        <select id="selyear" class="form-select">
+            <script>
+                //현재 년도와 월을 구한다
+                let date=new Date();
+                let curYear=date.getFullYear();
+                let curMonth=date.getMonth()+1;
+
+
+                for(let i=curYear;i>=1950;i--)
+                {
+                    let s=`
+                        <option>${i}</option>
+                    `;
+                    document.write(s);
+                }
+            </script>
+        </select>
+        &nbsp;
+        <b>년</b>
+        &nbsp;&nbsp;
+        <select id="selmonth" class="form-select">
+            <script>
+               for(let i=1;i<=12;i++)
+               {
+                  if(i==curMonth)
+                    document.write(`<option selected>${i}</option>`);
+                else
+                    document.write(`<option>${i}</option>`);
+               }
+            </script>
+        </select>
+        <b>월</b>
+    </div>
+     <div id="calendar">111</div>
+   </div>
+</body>
+</html>
