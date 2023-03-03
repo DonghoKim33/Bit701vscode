@@ -114,6 +114,15 @@
                 }
             }
 
+            //나머지칸 그리기
+            let n=1;
+            do{
+                week++;
+                s+=`
+                <td><span style='color:#ccc'>${n++}</span></td>
+                `
+            }while(week%7!=0);
+
 
             s+="</tr>";
 
